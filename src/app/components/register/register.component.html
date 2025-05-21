@@ -1,0 +1,87 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            <div class="card shadow-lg">
+                <div class="card-header text-center bg-success text-white">
+                    <h4>Register</h4>
+                </div>
+                <div class="card-body">
+                    <form #registerForm="ngForm" (ngSubmit)="onRegister(registerForm)">
+
+                        <!-- Full Name -->
+                        <div class="mb-3">
+                            <label for="registerName" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="registerName" name="name"
+                                [(ngModel)]="registerObj.name" required #nameRef="ngModel"
+                                [ngClass]="{'is-invalid': nameRef.invalid && nameRef.touched}" />
+                            <div class="invalid-feedback" *ngIf="nameRef.errors && nameRef.touched">
+                                Full name is required
+                            </div>
+                        </div>
+
+                        <!-- Username -->
+                        <div class="mb-3">
+                            <label for="registerUsername" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="registerUsername" name="username"
+                                [(ngModel)]="registerObj.username" required minlength="3" #usernameRef="ngModel"
+                                [ngClass]="{'is-invalid': usernameRef.invalid && usernameRef.touched}" />
+                            <div class="invalid-feedback" *ngIf="usernameRef.errors && usernameRef.touched">
+                                <div *ngIf="usernameRef.errors['required']">Username is required</div>
+                                <div *ngIf="usernameRef.errors['minlength']">Minimum 3 characters</div>
+                            </div>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="mb-3">
+                            <label for="registerEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="registerEmail" name="email"
+                                [(ngModel)]="registerObj.email" required email #emailRef="ngModel"
+                                [ngClass]="{'is-invalid': emailRef.invalid && emailRef.touched}" />
+                            <div class="invalid-feedback" *ngIf="emailRef.errors && emailRef.touched">
+                                <div *ngIf="emailRef.errors['required']">Email is required</div>
+                                <div *ngIf="emailRef.errors['email']">Invalid email format</div>
+                            </div>
+                        </div>
+
+                        <!-- Password -->
+                        <div class="mb-3">
+                            <label for="registerPassword" class="form-label">Password</label>
+                            <input [type]="showPassword ? 'text' : 'password'" class="form-control"
+                                id="registerPassword" name="password" [(ngModel)]="registerObj.password" required
+                                minlength="6" #passwordRef="ngModel"
+                                [ngClass]="{'is-invalid': passwordRef.invalid && passwordRef.touched}" />
+                            <div class="invalid-feedback" *ngIf="passwordRef.errors && passwordRef.touched">
+                                <div *ngIf="passwordRef.errors['required']">Password is required</div>
+                                <div *ngIf="passwordRef.errors['minlength']">At least 6 characters</div>
+                            </div>
+
+                            <!-- Show Password Checkbox -->
+                            <div class="form-check mt-2">
+                                <input class="form-check-input" type="checkbox" id="showPassword"
+                                    [(ngModel)]="showPassword" name="showPassword" />
+                                <label class="form-check-label" for="showPassword">Show Password</label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-success w-100" [disabled]="registerForm.invalid">
+                            Register
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- popup -->
+<div class="toast align-items-center text-bg-success border-0" id="loginToast" role="alert" aria-live="assertive"
+    aria-atomic="true" data-bs-delay="3000" data-bs-autohide="true">
+    <div class="d-flex">
+        <div class="toast-body">Login Successful</div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+            aria-label="Close"></button>
+    </div>
+</div>

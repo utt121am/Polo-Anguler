@@ -1,0 +1,181 @@
+<div class="row text-center">
+    <div class="col-4 text-center">
+        @if (isDiv1Visibale==true) {
+        <div class="bg-success p-3">
+            div 1
+        </div>
+        }
+    </div>
+
+    <div class="col-4 text-center">
+        @if(isDiv2Visibale=="Yes"|| isDiv2Visibale=="yes")
+        {
+        <div class="bg-danger p-3">
+            div 2
+        </div>
+        }
+        @else {
+        <p class="text-center text-secondary">Div2 Hiden</p>
+        }
+
+    </div>
+
+    <div class="col-4 text-center">
+
+        <div class="bg-transparent p-3 text-success">
+
+            @if(isDiv3Visibale=="Sun"|| isDiv3Visibale=="sun")
+            {
+            <p class="text-center">Sunday</p>
+            }
+            @else if(isDiv3Visibale=="Mon"|| isDiv3Visibale=="mon")
+            {
+            <p class="text-center ">Monday</p>
+            }
+            @else if(isDiv3Visibale=="Tue"|| isDiv3Visibale=="tue")
+            {
+            <p class="text-center ">Tuesday</p>
+            }
+            @else if(isDiv3Visibale=="Wed"|| isDiv3Visibale=="wed")
+            {
+            <p class="text-center ">Wednesday</p>
+            }
+            @else if(isDiv3Visibale=="Thu"|| isDiv3Visibale=="thu")
+            {
+            <p class="text-center ">Thursday</p>
+            }
+            @else if(isDiv3Visibale=="Fri"|| isDiv3Visibale=="fri")
+            {
+            <p class="text-center ">Friday</p>
+            }
+            @else if(isDiv3Visibale=="Sat"|| isDiv3Visibale=="sat")
+            {
+            <p class="text-center ">saturday</p>
+            }
+            @else {
+            <p class="text-center text-danger">Wrong Entry</p>
+            }
+        </div>
+    </div>
+</div>
+
+<!-- //.............. -->
+
+<div class="row text-center p-4">
+
+    <div class="col-4 text-center">
+        <button class="btn btn-success mx-2 w-25" (click)="showHideDiv(true)">Show</button>
+        <button class="btn btn-danger w-25" (click)="showHideDiv(false)">Hide</button>
+    </div>
+
+    <div class="col-4 text-center">
+        <input type="text" [(ngModel)]="isDiv2Visibale" />
+    </div>
+
+    <div class="col-4 text-center">
+        <input type="text" [(ngModel)]="isDiv3Visibale" maxlength="3" />
+    </div>
+</div>
+
+<hr>
+<!-- .................... -->
+
+<div class="row">
+    <div class="col-3">
+        <ul>
+            @for (city of cities; track $index) {
+            <li>{{city}}</li>
+            }
+        </ul>
+    </div>
+
+    <div class="col-3 text-center">
+        <ul>
+            @for (city of cities; track $index) {
+            <input class="mx-2  p-2 text-center m-2 w-50 border-danger bg-info" type="text" [value]="city">
+            <br>
+            }
+        </ul>
+    </div>
+
+    <div class="col-6 text-center">
+        <table class="table table-bordered">
+            <thead>
+                <tr class="bg-danger">
+                    <td class="bg-primary">Sr No</td>
+                    <td class="bg-primary">Name</td>
+                    <td class="bg-primary">Mobile</td>
+                    <td class="bg-primary">City</td>
+                    <td class="bg-primary">Status</td>
+                </tr>
+            </thead>
+
+            @for (student of students; track $index) {
+            <tr class="h-auto">
+                <td class="bg-info-subtle">{{$index+1}}</td>
+                <td class="bg-info">{{student.name}}</td>
+                <td class="bg-info-subtle">{{student.mobile}}</td>
+                <td class="bg-info">{{student.city}}</td>
+                <td class="bg-info-subtle  {{student.isActive?'text-success':'text-danger'}}">
+                    @if (student.isActive) {
+                    Student is Active
+                    }
+                    @else {
+                    Student is Deactive
+                    }
+                </td>
+            </tr>
+            }
+
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- ...................... -->
+
+<div class="row text-center p-4">
+    <div class="col-12 text-center">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <td class="bg-primary">Sr No</td>
+                    <td class="bg-primary">Name</td>
+                    <td class="bg-primary">Mobile</td>
+                    <td class="bg-primary">City</td>
+                    <td class="bg-primary">Status</td>
+                </tr>
+            </thead>
+
+            @for (student of students; track $index)
+            {
+            <tr class="{{student.isActive?'bg-danger-subtle-success text-success':'bg-danger-subtle text-danger'}}">
+                <td>{{$index+1}}</td>
+                <td>{{student.name}}</td>
+                <td>{{student.mobile}}</td>
+                <td>{{student.city}}</td>
+                <td>{{student.isActive?'Student is Active':'Student is Deactive'}}</td>
+            </tr>
+            }
+
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- .................. -->
+
+<div class="row text-center">
+    <div class="col-3">
+        <select>
+            <option value="">select student</option>
+            @for (item of students; track $index) {
+            <option [value]="item.studentId">{{item.name}}</option>
+            }
+        </select>
+    </div>
+</div>

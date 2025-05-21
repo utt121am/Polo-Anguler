@@ -1,0 +1,61 @@
+<div class="row">
+    <div class="col-4 text-center">
+        <button class="btn btn-success m-4" (click)="getUser()">
+            get User
+        </button>
+    </div>
+
+    <div class="col-4 text-center">
+        <button class="btn btn-success m-4" (click)="getBankLoan()">
+            get Students
+        </button>
+    </div>
+    <div class="col-4 text-center" (click)="getMyApi()">
+        <button class="btn btn-success m-4">
+            not working
+        </button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-4">
+        <ul>
+            @for (item of userList; track $index) {
+            <li>name : {{item.name}}</li>
+            <li>username : {{item.username}}</li>
+            <li>email : {{item.email}}</li>
+            <li>street : {{item.address.street}}</li>
+            <li>suite : {{item.address.suite}}</li>
+            <li>city : {{item.address.city}}</li>
+            <li>zipcode : {{item.address.zipcode}}</li>
+            <li>geo latitude : {{item.address.geo.lat}}</li>
+            <li>geo lngitude : {{item.address.geo.lng}}</li>
+            <li>phone : {{item.phone}}</li>
+            <li>website : {{item.website}}</li>
+            <li>company name : {{item.company.name}}</li>
+            <li>company catchPhrase : {{item.company.catchPhrase}}</li>
+            <li>company bs : {{item.company.bs}}</li>
+            <hr>
+            }
+        </ul>
+    </div>
+    <div class="col-4">
+        <ul>
+            @for (item of studentList; track $index) {
+            <li>user id : {{item.id}}</li>
+            <li>title : {{item.title}}</li>
+            <hr>
+            }
+        </ul>
+    </div>
+
+    <div class="col-4">
+        <ul>
+            @for (item of myUsers; track $index) {
+            <li>user name : {{item.name}}</li>
+            <hr>
+            }
+        </ul>
+    </div>
+
+</div>

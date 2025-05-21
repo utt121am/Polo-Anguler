@@ -1,0 +1,163 @@
+<div class="row">
+    <div class="col-12 bg-gradient text-center p-2">
+        <h3>DATA BINDING</h3>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-6 bg-success text-center p-3">
+        <h3>one way</h3>
+    </div>
+
+    <div class="col-6 bg-primary text-center p-3">
+        <h3>two way</h3>
+    </div>
+</div>
+
+<div class="row">
+
+    <div class="col-6">
+        <div class="row">
+            <div class="col-6 p-3 bg-gradient text-center">
+                <h4>From.ts to .html</h4>
+            </div>
+
+            <div class="col-6 p-3 bg-warning text-center">
+                <h4>From.html to .ts</h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-6">
+        <div class="row">
+            <div class="col-12 p-3 bg-danger text-center text-white">
+                <h4>Using ng</h4>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="row">
+
+    <div class="col-3">
+        <div class="row">
+
+            <div class="col-6 bg-success p-4 text-center">
+                <h4>interpolation</h4>
+            </div>
+
+            <div class="col-6 bg-primary p-4 text-center">
+                <h6>property Binding</h6>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-3">
+        <div class="row">
+            <div class="col-12 bg-secondary p-4 text-center">
+                <h4>Event Binding</h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-6">
+        <div class="row">
+            <div class="col-12 bg-info p-4 text-center ">
+                <h4>Two Way</h4>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ............ -->
+<div class="row">
+
+    <div class="col-12">
+        <div class="row">
+
+            <div class="col-6 bg-success text-center p-4 border=1px,solid,black">
+                <hr>
+                <b>Name : </b>{{name}}
+
+                <hr>
+                <b>Course : </b>{{course}}
+
+                <hr>
+                <b>Duration (month) : </b>{{duration}}
+
+            </div>
+
+            <div class="col-6 bg-primary text-start p-4">
+                <hr>
+                <input type="text" value={{name}} placeholder={{name}}>
+                <hr>
+                <input type="text" placeholder={{name}}>
+                <hr>
+                <input type="text" [value]="course" [minLength]="minimumLength" placeholder={{name}}>
+                <hr>
+                <input [type]="myType" name="" id="">
+                <hr>
+                <p [class]="myPrimaryText">peragrapg page</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--......................... -->
+
+<div class="row bg-secondary">
+
+    <div class="col-2 p-4">
+        <button class="btn btn-primary" (click)="showMassage()">show massage</button>
+    </div>
+
+    <div class="col-3 p-4">
+        <select name="" id="" (change)="onStateChange($event)">
+            <option value="">Select State</option>
+            <option value="West Bengle">West Bengle</option>
+            <option value="Maharastra">Maharastra</option>
+            <option value="Tamil Nadu">Tamil Nadu</option>
+            <option value="Goa">Goa</option>
+            <option value="Kerla">Kerla</option>
+            <option value="Andhra Pradesh">Andhra Pradesh</option>
+            <option value="Karnataka">Karnataka</option>
+            <option value="Uttar Pradesh">Uttar Pradesh</option>
+        </select>
+    </div>
+
+    <div class="col-6 bg-dark text-center p-4 text-white" (mouseenter)="mouseEnter()" (mouseleave)="mouseLeave()">
+        <p>mouse hover</p>
+    </div>
+</div>
+
+<!-- .............................. -->
+
+<div class="row bg-secondary p-3 text-center">
+    <hr>
+    <div class="col-4">
+        <button class="btn btn-primary w-25" (click)="courseButton('Anguler')">Anguler</button>
+    </div>
+
+    <div class="col-4">
+        <button class="btn btn-primary w-25" (click)="courseButton('React')">React</button>
+    </div>
+
+    <div class="col-4">
+        <button class="btn btn-primary w-25" (click)="courseButton('Java')"> Java </button>
+    </div>
+
+</div>
+
+<!-- .... -->
+<div class="row bg-info text-center p-3">
+
+    <div class="col-3">
+        <input type="text" [value]="course" placeholder="course">
+    </div>
+
+    <div class="col-3">
+        <input type="text" [(ngModel)]="course" placeholder="course">
+    </div>
+
+</div>

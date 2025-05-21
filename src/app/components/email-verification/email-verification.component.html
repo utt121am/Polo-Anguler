@@ -1,0 +1,40 @@
+<!-- popup -->
+<!-- Toast Container (Top-Right Corner) -->
+<div class="position-fixed top-0 end-0 p-3 text-light" style="z-index: 1055">
+    <div class="toast align-items-center border-0" [ngClass]="floatingBackground" id="loginToast" role="alert"
+        aria-live="assertive" aria-atomic="true" data-bs-delay="3000" data-bs-autohide="true">
+        <div class="d-flex">
+            <div class="toast-body">{{ floatingTitle }}</div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                aria-label="Close"></button>
+        </div>
+    </div>
+</div>
+<!-- email-verification-page.component.html -->
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <div class="card shadow-lg border-0">
+                <div class="card-header bg-dark text-white text-center">
+                    <h3>Email Verification</h3>
+                </div>
+                <div class="card-body">
+                    <p>Please enter the verification code sent to your email:</p>
+                    <input type="text" class="form-control mb-3" [(ngModel)]="verificationCode"
+                        placeholder="Enter Verification Code" />
+                    <div class="text-center mb-3">
+                        <button class="btn btn-primary" (click)="verifyCode()" [disabled]="timer == 0">Verify</button>
+                    </div>
+                    <div class="text-center mb-3">
+                        <p>Time remaining: {{ timer }} seconds</p>
+                    </div>
+                    <div class="text-center">
+                        <button class="btn btn-outline-secondary" (click)="resendEmail()" [disabled]="timer > 0">
+                            Resend Email
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

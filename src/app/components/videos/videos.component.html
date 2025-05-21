@@ -1,0 +1,148 @@
+<div class="row" style="height: 100vh; overflow: hidden;">
+    <div class="col-8" style="height: 100%; overflow-y: auto;">
+        <div class="card">
+            <div class="card-header bg-success">
+                <h5>Video List</h5>
+            </div>
+
+            <div class="card-body">
+                <div class="row">
+
+                    @for (item of myUsers; track $index) {
+                    <div class="col-3 mt-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h4 class="card-title">{{item.department.toUpperCase()}}</h4>
+                                <p class="card-text">
+                                    Hi, my name is <b>{{item.name}}</b>. I am a student with roll number
+                                    <i>{{item.roll}}</i>. My current CGPA is <b>{{item.cgpa}}</b>, and I am {{item.age}}
+                                    years
+                                    old.
+                                </p>
+                                <a class="card-link">
+                                    <button class="btn btn-success" (ngSubmit)="submitForm(studentForm)"
+                                        (click)="videoEdit(item)">
+                                        edit
+                                    </button>
+                                </a>
+                                <a class="card-link">
+                                    <button class="btn btn-danger" (click)="onDel(item)">
+                                        delete
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    }
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-4">
+        <div class="card">
+            <div class="card-header bg-success">
+                <h5>New Video Form</h5>
+            </div>
+            <div class="card-body">
+
+                <div class="row">
+                    <form #studentForm="ngForm" (ngSubmit)="submitForm(studentForm)">
+                        <div class="row">
+
+                            <!-- Name: letters and spaces only -->
+                            <div class="col-12">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" class="form-control"
+                                    [(ngModel)]="videoObj.name" pattern="^[A-Za-z ]+$" required #name="ngModel"
+                                    [ngClass]="{ 'is-invalid': name.invalid && name.touched }">
+                                <div *ngIf="name.invalid && name.touched" class="text-danger">
+                                    Name must contain only letters and spaces.
+                                </div>
+                            </div>
+
+                            <!-- Roll: exactly 11 digits -->
+                            <div class="col-12">
+                                <label for="roll">Roll</label>
+                                <input type="text" id="roll" name="roll" class="form-control"
+                                    [(ngModel)]="videoObj.roll" pattern="^[0-9]{11}$" required #roll="ngModel"
+                                    [ngClass]="{ 'is-invalid': roll.invalid && roll.touched }">
+                                <div *ngIf="roll.invalid && roll.touched" class="text-danger">
+                                    Roll must be exactly 11 digits.
+                                </div>
+                            </div>
+
+                            <!-- Age: 2-digit number from 18 to 50 (basic pattern, validation still needed on range) -->
+                            <div class="col-12">
+                                <label for="age">Age</label>
+                                <input type="number" id="age" name="age" class="form-control" [(ngModel)]="videoObj.age"
+                                    min="18" max="50" required #age="ngModel"
+                                    [ngClass]="{ 'is-invalid': age.invalid && age.touched }">
+                                <div *ngIf="age.invalid && age.touched" class="text-danger">
+                                    Age must be between 18 and 50.
+                                </div>
+                            </div>
+
+                            <!-- Department: only letters, max 10 chars -->
+                            <div class="col-12">
+                                <label for="department">Department</label>
+                                <select id="department" name="department" class="form-control"
+                                    [(ngModel)]="videoObj.department" required #department="ngModel"
+                                    [ngClass]="{ 'is-invalid': department.invalid && department.touched }">
+
+                                    <option value="" disabled selected>Select Department</option>
+                                    <option value="Computer Science and Engineering (CSE)">Computer Science and
+                                        Engineering (CSE)</option>
+                                    <option value="Mechanical Engineering (ME)">Mechanical Engineering (ME)</option>
+                                    <option value="Civil Engineering">Civil Engineering</option>
+                                    <option value="Electrical Engineering">Electrical Engineering</option>
+                                    <option value="Electronics and Communication Engineering (ECE)">Electronics and
+                                        Communication Engineering (ECE)</option>
+                                    <option value="Pharmaceutics">Pharmaceutics</option>
+                                    <option value="Pharmacology">Pharmacology</option>
+                                    <option value="Pharmaceutical Chemistry">Pharmaceutical Chemistry</option>
+                                    <option value="Pharmacognosy">Pharmacognosy</option>
+                                </select>
+
+                                <div *ngIf="department.invalid && department.touched" class="text-danger">
+                                    Department is required.
+                                </div>
+                            </div>
+
+
+                            <!-- CGPA: decimal number from 0 to 9.99 -->
+                            <div class="col-12">
+                                <label for="cgpa">CGPA</label>
+                                <input type="text" id="cgpa" name="cgpa" class="form-control"
+                                    [(ngModel)]="videoObj.cgpa" pattern="^([0-9](\.\d{1,2})?)$" required #cgpa="ngModel"
+                                    [ngClass]="{ 'is-invalid': cgpa.invalid && cgpa.touched }">
+                                <div *ngIf="cgpa.invalid && cgpa.touched" class="text-danger">
+                                    CGPA must be a number from 0 to 9.99 (up to 2 decimals).
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+
+                <!-- ............. -->
+                <div class="row pt-3">
+                    <div class="col-6 text-center">
+                        <button class="btn btn-secondary w-50" (click)="onCancel(studentForm)">
+                            {{ videoObj.id === 0 ? 'Reset' : 'Cancel' }}
+                        </button>
+                    </div>
+                    <div class="col-6 text-center">
+                        <button class="btn btn-success w-50" [disabled]="studentForm.invalid"
+                            (click)="videoObj.id === 0 ? onSave('saved',studentForm) : onUpdate('updated')">
+                            {{ videoObj.id === 0 ? 'Save' : 'Update' }}
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ............. -->
+            </div>
+        </div>
+    </div>
+</div>

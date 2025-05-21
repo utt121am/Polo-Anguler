@@ -1,0 +1,35 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/internal/Observable';
+import { videoModel } from '../model/video';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class VideoService {
+
+  urlVideo: String = "http://localhost:8080/poloAnguler/";
+  fullUrl: String = '';
+
+  constructor(private http: HttpClient) { }
+
+  getUsers() {
+    return this.http.get(this.urlVideo + 'getAllUser')
+  }
+
+  postUser(obj: videoModel) {
+    console.log(this.urlVideo + 'postUser');
+    return this.http.post(this.urlVideo + 'postUser', obj)
+  }
+
+  updateUser(obj: videoModel) {
+    console.log(this.urlVideo + 'update/' + obj.id);
+    return this.http.post(this.urlVideo + 'update/' + obj.id, obj)
+  }
+
+
+  deleteUser(obj: videoModel) {
+    return this.http.delete(this.urlVideo + 'delete/' + obj.id)
+  }
+
+}

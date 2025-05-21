@@ -1,0 +1,293 @@
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f4f8;
+    }
+
+    .hero-section {
+        background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+        color: white;
+        padding: 100px 20px;
+        text-align: center;
+    }
+
+    .hero-section h1 {
+        font-size: 3.5rem;
+        font-weight: bold;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero-section p {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+
+    .explore-btn {
+        background-color: #ff9f1c;
+        border: none;
+        padding: 15px 30px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: white;
+        border-radius: 25px;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .explore-btn:hover {
+        transform: scale(1.1);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .feature-section {
+        padding: 50px 20px;
+        background-color: #ffffff;
+    }
+
+    .feature-card {
+        background: linear-gradient(45deg, #845ec2, #d65db1);
+        color: white;
+        padding: 20px;
+        border-radius: 15px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+    }
+
+    .feature-card:hover {
+        transform: translateY(-10px);
+    }
+
+    .feature-card h3 {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+    }
+
+    .about-section {
+        background: linear-gradient(135deg, #2c73d2, #0081cf);
+        color: white;
+        padding: 50px 20px;
+        text-align: center;
+    }
+
+    .about-section h2 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    }
+
+    .footer-section {
+        background-color: #333;
+        color: white;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .footer-section p {
+        margin: 0;
+        font-size: 1rem;
+    }
+</style>
+
+
+<body>
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="container">
+            <h1>Welcome to Polo Angular</h1>
+            <p>Discover a vibrant and modern Angular experience!</p>
+            <button class="explore-btn">Explore More</button>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="feature-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <h3>Feature One</h3>
+                        <p>Experience seamless performance with our cutting-edge technology.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card" style="background: linear-gradient(45deg, #ff9671, #f9f871);">
+                        <h3>Feature Two</h3>
+                        <p>Beautifully designed components for a stunning user interface.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card" style="background: linear-gradient(45deg, #00c9a7, #008b74);">
+                        <h3>Feature Three</h3>
+                        <p>Fast, reliable, and scalable solutions for all your needs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- fliping card -->
+    <div class="hero-section">
+        <div class="container text-center">
+            <h1>Polo Angular Features</h1>
+            <p>Explore the powerful features that make Polo Angular stand out!</p>
+        </div>
+    </div>
+
+    <div class="card-section">
+        <div class="container">
+            <h2 class="text-center mb-5">Hover Rotate 3D Elements on Mousemove</h2>
+            <div class="row justify-content-center">
+                <!-- Card 1 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card" (mousemove)="onMouseMove($event, 'card1')" (mouseleave)="onMouseLeave('card1')">
+                        <div class="card-inner">
+                            <img src="https://scontent.frdp3-1.fna.fbcdn.net/v/t39.30808-1/486353655_1109889797578457_8058779473852552_n.jpg?stp=c93.170.1035.1035a_dst-jpg_s200x200_tt6&_nc_cat=101&ccb=1-7&_nc_sid=1d2534&_nc_ohc=tGUrOAYdqYUQ7kNvwHe_NRo&_nc_oc=Adnr70rE4c34wXDA7-J2jovx7pzQdzUzrwzb8GTInzdxZ4JvLDW2BJsMy1c6Kq3Dg79UW77q9Fzd4txspKQb0rVF&_nc_zt=24&_nc_ht=scontent.frdp3-1.fna&_nc_gid=kesuoIjjcS7TVghPG6bIQA&oh=00_AfKKicPbmBlCKv1hl8VCvRg9aKZfAxPbkJe83sTpiRv-Bg&oe=682E814A"
+                                alt="Steven Reeves" class="card-img">
+                            <h3>Uttam Nayek</h3>
+                            <p>Backend developer with expertise in server-side logic, authentication, and data
+                                processing, ensuring system reliability and performance.</p>
+                            <div class="social-icons">
+                                <a href="https://www.facebook.com/" target="_blank" class="social-icon"><i
+                                        class="fab fa-facebook-f"></i></a>
+                                <a href="https://github.com/" target="_blank" class="social-icon"><i
+                                        class="fab fa-github"></i></a>
+                                <a href="https://www.linkedin.com/" target="_blank" class="social-icon"><i
+                                        class="fab fa-linkedin-in"></i></a>
+                                <a href="https://wa.me/7679130608" target="_blank" class="social-icon"><i
+                                        class="fab fa-whatsapp"></i></a>
+                            </div>
+                            <button class="btn btn-primary">see more</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card" (mousemove)="onMouseMove($event, 'card2')" (mouseleave)="onMouseLeave('card2')">
+                        <div class="card-inner">
+                            <img src="https://scontent.frdp3-1.fna.fbcdn.net/v/t39.30808-1/473357784_1508690536466960_8611085339272133161_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=100&ccb=1-7&_nc_sid=e99d92&_nc_ohc=4PYRJ9DTTVEQ7kNvwHNQyz9&_nc_oc=Adk_U9Bsavod_Mq5fuwixs5wo4teyLsqRdXmEO8jwvKNiV4xp2BztbH9RXvuo26A6S2d-oRbcNEywY6ePagRhElZ&_nc_zt=24&_nc_ht=scontent.frdp3-1.fna&_nc_gid=Zop5MauJ1ibfkf-DZ1o-Ig&oh=00_AfI8XnQ3BIroZhBQyCjVFX3OWqx1lOuOyhFTAzE1Y2MKLQ&oe=682EB590"
+                                alt="Katy Morton" class="card-img">
+                            <h3>Soumajit Maity</h3>
+                            <p>Skilled in designing and managing RESTful APIs, integrating backend services, and
+                                optimizing data flow between systems.</p>
+                            <div class="social-icons">
+                                <a href="https://www.facebook.com/" target="_blank" class="social-icon"><i
+                                        class="fab fa-facebook-f"></i></a>
+                                <a href="https://github.com/" target="_blank" class="social-icon"><i
+                                        class="fab fa-github"></i></a>
+                                <a href="https://www.linkedin.com/" target="_blank" class="social-icon"><i
+                                        class="fab fa-linkedin-in"></i></a>
+                                <a href="https://wa.me/7585081578" target="_blank" class="social-icon"><i
+                                        class="fab fa-whatsapp"></i></a>
+                            </div>
+
+
+
+                            <button class="btn btn-primary">see more</button>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card" (mousemove)="onMouseMove($event, 'card3')" (mouseleave)="onMouseLeave('card3')">
+                        <div class="card-inner">
+                            <img src="https://scontent.frdp3-1.fna.fbcdn.net/v/t39.30808-1/454035147_1215948103155858_9028305057207652376_n.jpg?stp=dst-jpg_p100x100_tt6&_nc_cat=108&ccb=1-7&_nc_sid=e99d92&_nc_ohc=wHJpUpqMj50Q7kNvwHt3p0r&_nc_oc=AdkB1UVAn0IBP9slMEp3a9fxBfDlqQ0132OHSvGJoy3cy7lwmIC_TMAGldg1CVYjhMyVtsFELvqbfNnk62KK1uGa&_nc_zt=24&_nc_ht=scontent.frdp3-1.fna&_nc_gid=4BpbEzpXyjRzyAYyGGF4BQ&oh=00_AfJt_V3pNvGAhfuvV1gg6LR8xsFqs25rKFIbJAn7MOhjjQ&oe=682EB85E"
+                                alt="Lucile Ho" class="card-img">
+                            <h3>Anindya Chateerjee</h3>
+                            <p>Database management specialist adept at data modeling, SQL queries, and maintaining data
+                                integrity across multiple platforms.</p>
+                            <div class="social-icons">
+                                <a href="https://www.facebook.com/" target="_blank" class="social-icon"><i
+                                        class="fab fa-facebook-f"></i></a>
+                                <a href="https://github.com/" target="_blank" class="social-icon"><i
+                                        class="fab fa-github"></i></a>
+                                <a href="https://www.linkedin.com/" target="_blank" class="social-icon"><i
+                                        class="fab fa-linkedin-in"></i></a>
+                                <a href="https://wa.me/9330985615" target="_blank" class="social-icon"><i
+                                        class="fab fa-whatsapp"></i></a>
+                            </div>
+
+
+
+                            <button class="btn btn-primary">see more</button>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card" (mousemove)="onMouseMove($event, 'card3')" (mouseleave)="onMouseLeave('card3')">
+                        <div class="card-inner">
+                            <img src="https://media.licdn.com/dms/image/v2/C4E03AQGI1peYH7qygw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1654408484779?e=1752710400&v=beta&t=cKuCLvNyjZ4nAUYTmhlOKKS8uUHUrGENAtjquskb9mU"
+                                alt="Lucile Ho" class="card-img">
+                            <h3>Rajib baidhya</h3>
+                            <p>
+                            <p>Creative frontend developer specializing in responsive web design and interactive user
+                                interfaces, delivering seamless user experiences.</p>
+                            <div class="social-icons">
+                                <a href="https://www.facebook.com/" target="_blank" class="social-icon"><i
+                                        class="fab fa-facebook-f"></i></a>
+                                <a href="https://github.com/" target="_blank" class="social-icon"><i
+                                        class="fab fa-github"></i></a>
+                                <a href="https://www.linkedin.com/" target="_blank" class="social-icon"><i
+                                        class="fab fa-linkedin-in"></i></a>
+                                <a href="https://wa.me/6290560683" target="_blank" class="social-icon"><i
+                                        class="fab fa-whatsapp"></i></a>
+                            </div>
+
+
+
+                            <button class="btn btn-primary">see more</button>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 5 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card" (mousemove)="onMouseMove($event, 'card3')" (mouseleave)="onMouseLeave('card3')">
+                        <div class="card-inner">
+                            <img src="https://scontent.frdp3-1.fna.fbcdn.net/v/t39.30808-6/475124255_1516013269068020_2566255844835875836_n.jpg?stp=dst-jpg_s206x206_tt6&_nc_cat=101&ccb=1-7&_nc_sid=fe5ecc&_nc_ohc=kMmYjxnfAVoQ7kNvwEg6Ah0&_nc_oc=Adny8bj30XaKTnhCcK5VGyS_Cg42bSVjlZcf3Zes_lDyC3C35R1EIGkf6ODHQzQhv6fuzdTwC-ZAhP4dVIuyBtSo&_nc_zt=23&_nc_ht=scontent.frdp3-1.fna&_nc_gid=tU1lUQp8oHpxFa4zothNug&oh=00_AfKZQ38Y7xODmyec66-umzewWTGm1Vj4Dl107dGJQ91HdQ&oe=682F06E9"
+                                alt="Lucile Ho" class="card-img">
+                            <h3>Tanmoy Karmakar</h3>
+                            <p>Proficient in creating engaging presentations and comprehensive documentation, delivering
+                                clear and impactful visual communication.</p>
+                            <div class="social-icons">
+
+                                <a href="https://www.facebook.com/utt121am" target="_blank" class="social-icon">
+                                    <i class="fab fa-facebook-f"></i>
+                                    <span class="tooltiptext">facebook</span>
+                                </a>
+
+                                <a href="https://github.com/utt121am" target="_blank" class="social-icon"><i
+                                        class="fab fa-github"></i></a>
+                                <a href="https://www.linkedin.com/utt121am" target="_blank" class="social-icon"><i
+                                        class="fab fa-linkedin-in"></i></a>
+                                <a href="https://wa.me/9073418373" target="_blank" class="social-icon"><i
+                                        class="fab fa-whatsapp"></i></a>
+
+                            </div>
+
+
+                            <button class="btn btn-primary">see more</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About Section -->
+    <div class="about-section">
+        <div class="container">
+            <h2>About Polo Angular</h2>
+            <p>Polo Angular is your go-to solution for building dynamic, colorful, and responsive web applications with
+                Angular and Bootstrap.</p>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="footer-section">
+        <p>&copy; 2025 Polo Angular. All rights reserved.</p>
+    </div>
+</body>
