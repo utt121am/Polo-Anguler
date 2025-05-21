@@ -2,11 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { videoModel } from '../model/video';
+import { profile_verification } from '../model/profile_verification';
 
 @Injectable({
   providedIn: 'root'
 })
 export class VideoService {
+
 
   urlVideo: String = "http://localhost:8080/poloAnguler/";
   fullUrl: String = '';
@@ -30,6 +32,10 @@ export class VideoService {
 
   deleteUser(obj: videoModel) {
     return this.http.delete(this.urlVideo + 'delete/' + obj.id)
+  }
+
+  otpVerification(verification: profile_verification) {
+    return this.http.delete(this.urlVideo + 'delete/');
   }
 
 }

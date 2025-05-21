@@ -9,14 +9,26 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterComponent } from './components/register/register.component';
 import { SelfProfileComponent } from './components/self-profile/self-profile.component';
 import { AuthGuard } from './auth.guard';
+import { PasswordChangeComponent } from './components/password-change/password-change.component';
+import { MemberComponent } from './components/member/member.component';
+import { HomeComponent } from './components/home/home.component';
+import { EmailVerificationComponent } from './components/email-verification/email-verification.component';
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 
 export const routes: Routes = [
 
     {
+        path: 'home',
+        component: HomeComponent
+    },
+    {
+        path: 'member',
+        component: MemberComponent
+    },
+    {
         path: 'user',
         component: UserComponent
     },
-
     {
         path: 'admin',
         component: AdminComponent
@@ -49,5 +61,21 @@ export const routes: Routes = [
         path: 'selfprofile/:studentId',
         component: SelfProfileComponent,
         canActivate: [AuthGuard]
+    }
+    ,
+    {
+        path: 'editprofile/:studentId',
+        component: EditProfileComponent,
+        canActivate: [AuthGuard]
+    }
+    ,
+    {
+        path: 'pass-change/:studentId',
+        component: PasswordChangeComponent
+    }
+    ,
+    {
+        path: 'email-verification/:studentId',
+        component: EmailVerificationComponent
     }
 ];
