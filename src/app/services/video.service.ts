@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { videoModel } from '../model/video';
@@ -34,8 +34,18 @@ export class VideoService {
     return this.http.delete(this.urlVideo + 'delete/' + obj.id)
   }
 
-  otpVerification(verification: profile_verification) {
-    return this.http.delete(this.urlVideo + 'delete/');
+  otpSending(verification: profile_verification) {
+    return this.http.post<HttpResponse<any>>(this.urlVideo + 'verify-otp', verification, {
+      observe: 'response'
+    });
   }
+
+  otpVerification(verification: profile_verification) {
+    return this.http.post<HttpResponse<any>>(this.urlVideo + 'verify-otp', verification, {
+      observe: 'response'
+    });
+  }
+
+
 
 }
