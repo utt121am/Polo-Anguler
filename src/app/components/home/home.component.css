@@ -99,10 +99,12 @@
 }
 
 .footer-section {
-    background-color: #333;
+    background-color: #697477;
+    background-color: #00c8ff;
     color: white;
     padding: 20px;
     text-align: center;
+
 }
 
 .footer-section p {
@@ -221,4 +223,105 @@
 
 .resumebtn .btn:hover i {
     transform: translateX(5px);
+}
+
+/* #/////////////// */
+@media screen and (min-width: 768px) {
+    body {
+        margin: 0;
+    }
+
+    .section {
+        padding-top: 4rem;
+    }
+
+    .section-title {
+        margin-bottom: 3rem;
+    }
+
+    .section-title::after {
+        width: 64px;
+        top: 3rem;
+    }
+
+    .nav {
+        height: calc(var(--header-height) + 1rem);
+    }
+
+    .nav__list {
+        display: flex;
+    }
+
+    .nav__item {
+        margin-left: var(--mb-4);
+        margin-bottom: 0;
+    }
+
+    .nav__toggle {
+        display: none;
+    }
+
+    .nav__link {
+        color: var(--white-color);
+    }
+
+    .nav__link:hover {
+        color: var(--white-color);
+    }
+
+    .active::after {
+        background-color: var(--white-color);
+    }
+
+    .home__container {
+        height: 100vh;
+        grid-template-rows: 1.7fr 1fr;
+        row-gap: 0;
+    }
+
+    .home__img {
+        width: 524px;
+        right: 10%;
+    }
+
+    .about__container {
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+        text-align: initial;
+        padding: 4rem 0;
+    }
+
+    .about__img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .about__img img {
+        width: 165px;
+    }
+
+    .skills__container {
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+    }
+
+    .portfolio__container {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        column-gap: 2rem;
+    }
+
+    .contact__container {
+        grid-template-columns: repeat(2, 1fr);
+        justify-items: center;
+    }
+
+    .contact__form {
+        width: 380px;
+    }
+
+    .footer__container {
+        grid-template-columns: repeat(3, 1fr);
+        justify-items: center;
+    }
 }
