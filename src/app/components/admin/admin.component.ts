@@ -1,10 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { AfterViewInit, Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-admin',
-  imports: [RouterLink, CommonModule],
+  imports: [CommonModule],
   templateUrl: './admin.component.html',
   styleUrl: './admin.component.css',
 })
