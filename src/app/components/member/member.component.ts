@@ -1,13 +1,25 @@
-import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-member',
-  imports: [],
   templateUrl: './member.component.html',
-  styleUrl: './member.component.css',
+  styleUrls: ['./member.component.css']
 })
-export class MemberComponent {
+export class MemberComponent implements OnInit {
 
+  ngOnInit(): void {
+    window.addEventListener('scroll', this.toggleStickyNavbar);
+  }
+
+  toggleStickyNavbar = () => {
+    const navbar = document.getElementById('navbar');
+    if (navbar) {
+      if (window.pageYOffset > 50) {
+        navbar.classList.add('sticky');
+      } else {
+        navbar.classList.remove('sticky');
+      }
+    }
+  };
 
 }

@@ -102,7 +102,7 @@
             padding: 10px 25px;
             border-radius: 5px;
             margin: 10px;
-            transition: background 0.3s ease;
+            transition: 0.3s ease;
         }
 
         .hero-section .btn:hover {
@@ -218,7 +218,7 @@
                 flex-direction: column;
             }
 
-            .sidebar {
+            /* .sidebar {
                 width: 100%;
                 height: auto;
                 flex-direction: row;
@@ -226,7 +226,35 @@
                 justify-content: center;
                 box-shadow: none;
                 border-bottom: 1px solid #e9ecef;
+                position: fixed;
+            } */
+
+            /*
+             .sidebar {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 250px;
+                height: 100vh;
+                background-color: #ffffff;
+                padding: 20px;
+                box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                z-index: 1000;
+            } 
+            */
+
+
+            .content {
+                flex: 1;
+                padding: 40px;
+                overflow-y: auto;
+                margin-left: 250px;
+                /* same as sidebar width */
             }
+
 
             .sidebar .navbar-brand {
                 margin-bottom: 10px;
@@ -254,13 +282,63 @@
                 font-size: 2rem;
             }
         }
+
+        /* @media (min-width: 992px) {
+            .sidebar {
+                position: fixed;
+            }
+
+            .content {
+                margin-left: 250px;
+            }
+        } */
+
+        .sticky {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 250px;
+            height: 100vh;
+            background-color: #ffffff;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            z-index: 1000;
+
+            .content {
+                flex: 1;
+                padding: 40px;
+                overflow-y: auto;
+                margin-left: 250px;
+                /* same as sidebar width */
+            }
+
+            .sidebar {
+                width: 100%;
+                height: auto;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                box-shadow: none;
+                border-bottom: 1px solid #e9ecef;
+                position: fixed;
+            }
+        }
     </style>
 </head>
 
 <body>
     <div class="container-fluid">
         <!-- Sidebar Navigation -->
-        <nav class="sidebar">
+        <nav class="sidebar " id="navbar">
             <div>
                 <a class="navbar-brand" href="#">Uttam Nayek</a>
                 <ul class="nav flex-column">
@@ -469,7 +547,20 @@
     </div>
 
     <!-- Bootstrap JS and Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> -->
+
+
+    <!-- <script>
+        var navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 50) {
+                navbar.classList.add('sticky');
+            } else {
+                navbar.classList.remove('sticky');
+            }
+        })
+    </script> -->
+
 </body>
 
 </html>
