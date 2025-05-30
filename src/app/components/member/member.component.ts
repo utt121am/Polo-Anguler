@@ -5,7 +5,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
   templateUrl: './member.component.html',
   styleUrls: ['./member.component.css']
 })
-export class MemberComponent implements OnInit, OnDestroy {
+export class MemberComponent implements OnInit {
 
   ngOnInit(): void {
     window.addEventListener('scroll', this.checkStickyNavbar);
