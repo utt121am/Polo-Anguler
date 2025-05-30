@@ -30,7 +30,6 @@ export class AdminComponent {
     const navbar = document.getElementById('navbar');
     const mcontent = document.getElementById('maincontent');
     if (navbar && mcontent) {
-      // Check if body height is less than or equal to viewport height
       const isBodyHeightSmall = document.body.scrollHeight <= window.innerHeight;
       if (isBodyHeightSmall) {
         navbar.classList.add('sticky');
