@@ -1,123 +1,234 @@
-<!-- Glassy Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top glass-navbar shadow-sm">
-  <div class="container">
-    <a class="navbar-brand fw-bold fs-4" href="#">
-      <i class="bi bi-terminal-fill me-2"></i>Uttam
-    </a>
-    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-      <ul class="navbar-nav text-uppercase">
-        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-        <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+<body>
 
-<!-- Hero Section -->
-<section id="home" class="hero-section d-flex align-items-center justify-content-center text-center text-white">
-  <div class="container">
-    <img src="assets/profile.jpg" alt="Profile" class="profile-img mb-4" />
-    <h1 class="display-4 fw-bold">Hi, I'm Uttam 👋</h1>
-    <p class="lead mb-4">Full Stack Developer | Angular | Java | MySQL</p>
-    <a class="btn btn-warning btn-lg shadow-sm" href="assets/resume.pdf" target="_blank">
-      <i class="bi bi-download me-2"></i>Resume
-    </a>
-  </div>
-</section>
+  <div class="container-fluid">
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" id="navbar">
+      <div>
+        <a class="navbar-brand" href="#">Uttam Nayek</a>
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link active" href="#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#skills">Skills</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#education">Education</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#projects">Projects</a>
+          </li>
+          <li class="nav-item">hero-section
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+      <a class="resume-btn" href="#resume">Download Resume</a>
+    </nav>
 
-<!-- About Section -->
-<section id="about" class="py-5 bg-light">
-  <div class="container text-center">
-    <h2 class="text-primary mb-4">About Me</h2>
-    <p class="fs-5">
-      Passionate Full Stack Developer with experience in building web applications using Angular, Java, and MySQL.
-      Dedicated to writing clean and maintainable code.
-    </p>
-  </div>
-</section>
+    <!-- Main Content -->
+    <div class="content">
 
-<!-- Skills Section -->
-<section id="skills" class="py-5 bg-white">
-  <div class="container text-center">
-    <h2 class="text-success mb-4">Skills</h2>
-    <div class="row justify-content-center">
-      <div class="col-md-2 mb-3"><span class="badge bg-success p-3">Angular</span></div>
-      <div class="col-md-2 mb-3"><span class="badge bg-info text-dark p-3">Java</span></div>
-      <div class="col-md-2 mb-3"><span class="badge bg-warning text-dark p-3">MySQL</span></div>
-      <div class="col-md-2 mb-3"><span class="badge bg-dark p-3">HTML/CSS</span></div>
-      <div class="col-md-2 mb-3"><span class="badge bg-primary p-3">Bootstrap</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- Projects Section -->
-<section id="projects" class="py-5 bg-light">
-  <div class="container text-center">
-    <h2 class="text-danger mb-4">Projects</h2>
-    <div class="row">
-      <div class="col-md-4 mb-4">
-        <div class="card shadow h-100">
-          <div class="card-body">
-            <h5 class="card-title">Portfolio Website</h5>
-            <p class="card-text">Responsive personal portfolio site using Angular & Bootstrap with contact form
-              integration.</p>
+      <!-- Hero Section -->
+      <section id="home" class="hero-section">
+        <div class="container">
+          <h1>Uttam Nayek</h1>
+          <p class="lead">Full Stack Java Developer</p>
+          <div>
+            <a href="#contact" class="btn">Get in Touch</a>
+            <a href="#resume" class="btn">View Resume</a>
           </div>
         </div>
-      </div>
-      <div class="col-md-4 mb-4">
-        <div class="card shadow h-100">
-          <div class="card-body">
-            <h5 class="card-title">Video Library</h5>
-            <p class="card-text">Full-stack CRUD app to manage videos using Angular frontend and Java backend.</p>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="section py-5">
+        <div class="container">
+          <h2>About Me</h2>
+          <div class="row align-items-center">
+            <div class="col-md-4 text-center">
+              <img src="https://via.placeholder.com/200" class="img-fluid rounded-circle shadow" alt="Uttam Nayek">
+            </div>
+            <div class="col-md-8">
+              <p class="mb-2">I am a dedicated Full Stack Java Developer skilled in building scalable web applications
+                using Angular, Spring Boot, and modern JavaScript tools.</p>
+              <p>I hold a Bachelor's in Computer Science and thrive on solving real-world challenges with clean,
+                efficient code and modern development practices.</p>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section id="skills" class="section py-5 bg-light">
+        <div class="container">
+          <h2>Skills</h2>
+          <div class="row">
+            <div class="col-md-4">
+              <h5>Frontend</h5>
+              <div class="progress mb-2">
+                <div class="progress-bar bg-info" style="width: 90%;">HTML, CSS, JS</div>
+              </div>
+              <div class="progress mb-2">
+                <div class="progress-bar bg-info" style="width: 85%;">Angular</div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <h5>Backend</h5>
+              <div class="progress mb-2">
+                <div class="progress-bar bg-success" style="width: 90%;">Java, Spring Boot</div>
+              </div>
+              <div class="progress mb-2">
+                <div class="progress-bar bg-success" style="width: 80%;">JPA, Hibernate</div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <h5>Tools</h5>
+              <div class="progress mb-2">
+                <div class="progress-bar bg-warning" style="width: 95%;">Git, GitHub</div>
+              </div>
+              <div class="progress mb-2">
+                <div class="progress-bar bg-warning" style="width: 75%;">VS Code, Postman</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Education Section -->
+      <section id="education" class="section py-5">
+        <div class="container">
+          <h2>Education</h2>
+          <div class="row g-4">
+            <div class="col-md-4">
+              <div class="card p-3 shadow-sm">
+                <h5>Bachelor’s in Computer Science</h5>
+                <p>[Your College Name]</p>
+                <p>CGPA: 8.04 | 2020 - 2024</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card p-3 shadow-sm">
+                <h5>12th Grade</h5>
+                <p>Percentage: 73%</p>
+                <p>Year: 2020</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card p-3 shadow-sm">
+                <h5>10th Grade</h5>
+                <p>Percentage: 74%</p>
+                <p>Year: 2018</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section id="projects" class="section py-5 bg-light">
+        <div class="container">
+          <h2>Projects</h2>
+          <div class="accordion" id="projectAccordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#project1">
+                  E-Commerce Platform
+                </button>
+              </h2>
+              <div id="project1" class="accordion-collapse collapse show" data-bs-parent="#projectAccordion">
+                <div class="accordion-body">
+                  Developed a full-stack e-commerce application with product catalog, user auth, and payment.
+                  <p><strong>Tech Stack:</strong> Angular, Spring Boot, MySQL</p>
+                  <a href="#" class="btn btn-outline-primary btn-sm">View Project</a>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item mt-2">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#project2">
+                  Task Management System
+                </button>
+              </h2>
+              <div id="project2" class="accordion-collapse collapse" data-bs-parent="#projectAccordion">
+                <div class="accordion-body">
+                  Created a task manager with user interaction and responsive layout.
+                  <p><strong>Tech Stack:</strong> Java, Spring Boot, Angular</p>
+                  <a href="#" class="btn btn-outline-primary btn-sm">View Project</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="contact-section">
+        <div class="container">
+          <h2 class="text-center mb-5">Contact Me</h2>
+          <div class="row justify-content-center mb-4">
+            <div class="col-md-10">
+              <div class="row g-3 justify-content-center text-center">
+                <div class="col-md-2 col-sm-4 col-6">
+                  <div class="contact-item">
+                    <i class="fas fa-envelope social-icon"></i>
+                    <p><a href="mailto:unayek91@gmail.com">Email</a></p>
+                  </div>
+                </div>
+                <div class="col-md-2 col-sm-4 col-6">
+                  <div class="contact-item">
+                    <i class="fab fa-whatsapp social-icon"></i>
+                    <p><a href="https://wa.me/919876543210">WhatsApp</a></p>
+                  </div>
+                </div>
+                <div class="col-md-2 col-sm-4 col-6">
+                  <div class="contact-item">
+                    <i class="fas fa-phone social-icon"></i>
+                    <p><a href="tel:+919876543210">Mobile</a></p>
+                  </div>
+                </div>
+                <div class="col-md-2 col-sm-4 col-6">
+                  <div class="contact-item">
+                    <i class="fab fa-github social-icon"></i>
+                    <p><a href="https://github.com/yourgithub" target="_blank">GitHub</a></p>
+                  </div>
+                </div>
+                <div class="col-md-2 col-sm-4 col-6">
+                  <div class="contact-item">
+                    <i class="fab fa-linkedin social-icon"></i>
+                    <p><a href="https://linkedin.com/in/yourlinkedin" target="_blank">LinkedIn</a></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="row justify-content-center">
+            <div class="col-md-8">
+              <form action="https://formspree.io/f/{your_form_id}" method="POST" class="row g-3">
+                <div class="col-md-6">
+                  <input type="text" class="form-control" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="col-md-6">
+                  <input type="email" class="form-control" name="_replyto" placeholder="Your Email" required>
+                </div>
+                <div class="col-12">
+                  <textarea class="form-control" name="message" rows="4" placeholder="Your Message" required></textarea>
+                </div>
+                <div class="col-12 text-center">
+                  <button type="submit" class="btn btn-primary">Send Message</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   </div>
-</section>
-
-<!-- Education Section -->
-<section id="education" class="py-5 bg-white">
-  <div class="container text-center">
-    <h2 class="text-info mb-4">Education</h2>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">🎓 Graduation - ABC College, CSE - CGPA: 8.5</li>
-      <li class="list-group-item">🏫 12th - XYZ Higher Secondary School - 85%</li>
-      <li class="list-group-item">🏫 10th - LMN High School - 90%</li>
-    </ul>
-  </div>
-</section>
-
-<!-- Contact Section (Icons Only) -->
-<section id="contact" class="py-5 bg-light">
-  <div class="container text-center">
-    <h2 class="text-primary mb-4">Contact</h2>
-    <div class="d-flex justify-content-center gap-4 fs-3 contact-icons">
-      <a href="mailto:uttam@example.com" class="text-danger" target="_blank"><i class="bi bi-envelope-fill"></i></a>
-      <a href="tel:+919876543210" class="text-success" target="_blank"><i class="bi bi-telephone-fill"></i></a>
-      <a href="https://wa.me/919876543210" class="text-success" target="_blank"><i class="bi bi-whatsapp"></i></a>
-      <a href="https://github.com/uttam" class="text-dark" target="_blank"><i class="bi bi-github"></i></a>
-      <a href="https://linkedin.com/in/uttam" class="text-primary" target="_blank"><i class="bi bi-linkedin"></i></a>
-      <a href="https://facebook.com/uttam" class="text-primary" target="_blank"><i class="bi bi-facebook"></i></a>
-    </div>
-  </div>
-</section>
-
-<!-- typ library -->
-<script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-<!-- Setup and start animation! -->
-<script>
-  var typed = new Typed('#element', {
-    strings: ['<i>CSE</i> Student|', 'Coder', 'Java Programmer', 'Backend Programmer'],
-    typeSpeed: 30,
-    backSpeed: 30,
-    loop: true
-  });
-</script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>

@@ -1,0 +1,268 @@
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .container-fluid {
+            display: flex;
+            flex: 1;
+        }
+
+        .sidebar {
+            background-color: #ffffff;
+            width: 250px;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar.sticky {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 250px;
+            height: 100vh;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .sidebar .nav-link {
+            color: #2c3e50;
+            font-weight: 500;
+            padding: 10px 15px;
+            transition: color 0.3s ease, background 0.3s ease;
+        }
+
+        .sidebar .nav-link:hover,
+        .sidebar .nav-link.active {
+            color: #007bff;
+            background: #e9ecef;
+            border-radius: 5px;
+        }
+
+        .sidebar .resume-btn {
+            background: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+
+        .sidebar .resume-btn:hover {
+            background: #0056b3;
+        }
+
+        .content {
+            flex: 1;
+            padding: 40px;
+            transition: margin-left 0.3s ease;
+        }
+
+        .content.maincontent {
+            margin-left: 250px;
+        }
+
+        .hero-section {
+            background: #ffffff;
+            padding: 60px 0;
+            text-align: center;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .hero-section h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+
+        .hero-section .btn {
+            background: #007bff;
+            color: #fff;
+            font-weight: 500;
+            padding: 10px 25px;
+            border-radius: 5px;
+            margin: 10px;
+            transition: background 0.3s ease;
+        }
+
+        .hero-section .btn:hover {
+            background: #0056b3;
+        }
+
+        .section {
+            padding: 60px 0;
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: #ffffff;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .about-section img {
+            border-radius: 50%;
+            border: 3px solid #007bff;
+        }
+
+        .contact-section {
+            background: #f1f3f5;
+        }
+
+        .contact-section .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 15px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+            height: 100%;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .contact-section .contact-item:hover {
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .contact-section .social-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #2c3e50;
+            transition: color 0.3s ease;
+        }
+
+        .contact-section .contact-item:hover .social-icon.email {
+            color: #D44638;
+        }
+
+        .contact-section .contact-item:hover .social-icon.whatsapp {
+            color: #25D366;
+        }
+
+        .contact-section .contact-item:hover .social-icon.phone {
+            color: #1E90FF;
+        }
+
+        .contact-section .contact-item:hover .social-icon.github {
+            color: #181717;
+        }
+
+        .contact-section .contact-item:hover .social-icon.linkedin {
+            color: #0A66C2;
+        }
+
+        .contact-section .contact-item:hover .social-icon.facebook {
+            color: #1877F2;
+        }
+
+        .contact-section a {
+            color: #2c3e50;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .contact-section a:hover {
+            color: #007bff;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        @media (max-width: 991.98px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: static;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                box-shadow: none;
+                border-bottom: 1px solid #e9ecef;
+            }
+
+            .sidebar.sticky {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: auto;
+                z-index: 1000;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            }
+
+            .content {
+                margin-left: 0;
+                padding: 20px;
+            }
+
+            .content.maincontent {
+                margin-left: 0;
+                padding-top: 100px;
+                /* Adjust for sticky navbar height */
+            }
+
+            .sidebar .navbar-brand {
+                margin-bottom: 10px;
+            }
+
+            .sidebar .nav-link {
+                padding: 8px 10px;
+            }
+
+            .sidebar .resume-btn {
+                margin: 10px;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .contact-section .contact-item {
+                margin-bottom: 15px;
+            }
+
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+        }

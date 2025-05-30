@@ -1,0 +1,262 @@
+body {
+font-family: 'Arial', sans-serif;
+margin: 0;
+padding: 0;
+background-color: #f0f4f8;
+}
+
+.hero-section {
+background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+color: white;
+padding: 100px 20px;
+text-align: center;
+}
+
+.hero-section h1 {
+font-size: 3.5rem;
+font-weight: bold;
+text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-section p {
+font-size: 1.5rem;
+margin-bottom: 20px;
+}
+
+.explore-btn {
+background-color: #ff9f1c;
+border: none;
+padding: 15px 30px;
+font-size: 1.2rem;
+font-weight: bold;
+color: white;
+border-radius: 25px;
+transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.explore-btn:hover {
+transform: scale(1.1);
+box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.feature-section {
+padding: 50px 20px;
+background-color: #ffffff;
+}
+
+.feature-card {
+background: linear-gradient(45deg, #845ec2, #d65db1);
+color: white;
+padding: 20px;
+border-radius: 15px;
+margin-bottom: 20px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+transition: transform 0.3s;
+}
+
+.feature-card:hover {
+transform: translateY(-10px);
+}
+
+.feature-card h3 {
+font-size: 1.8rem;
+margin-bottom: 10px;
+}
+
+.about-section {
+background: linear-gradient(135deg, #2c73d2, #0081cf);
+color: white;
+padding: 50px 20px;
+text-align: center;
+}
+
+.about-section h2 {
+font-size: 2.5rem;
+margin-bottom: 20px;
+}
+
+.footer-section {
+background-color: #333;
+color: white;
+padding: 20px;
+text-align: center;
+}
+
+.footer-section p {
+margin: 0;
+font-size: 1rem;
+}
+
+
+.card-section {
+padding: 50px 20px;
+background-color: #ffffff;
+}
+
+.card-section h2 {
+font-size: 2.5rem;
+font-weight: bold;
+color: #333;
+}
+
+.card {
+perspective: 1000px;
+background: #fff;
+border: none;
+border-radius: 15px;
+box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+transition: all 0.3s ease;
+height: 400px;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.card:hover {
+/* background: #e50000; */
+background-color: #f0f0f0;
+box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+p,
+h3 {
+color: rgb(0, 0, 0);
+}
+
+font {
+color: rgb(0, 0, 0);
+}
+}
+
+.card-inner {
+text-align: center;
+padding: 20px;
+transition: transform 0.3s ease;
+}
+
+.card-img {
+width: 120px;
+height: 120px;
+border-radius: 50%;
+margin-bottom: 15px;
+border: 3px solid #845ec2;
+}
+
+.card h3 {
+font-size: 1.5rem;
+font-weight: bold;
+color: #333;
+margin-bottom: 10px;
+}
+
+.card p {
+font-size: 0.9rem;
+color: #666;
+margin-bottom: 15px;
+}
+
+.social-icons {
+display: flex;
+justify-content: center;
+gap: 15px;
+}
+
+.social-icon {
+font-size: 1.2rem;
+color: #666;
+transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+color: #ff9f1c;
+}
+
+.footer-section {
+background-color: #697477;
+background-color: #00c8ff;
+color: white;
+padding: 20px;
+text-align: center;
+
+}
+
+.footer-section p {
+margin: 0;
+font-size: 1rem;
+}
+
+.social-icons {
+display: flex;
+gap: 15px;
+font-size: 24px;
+color: #4267B2;
+/* Facebook blue */
+}
+
+.social-icon:hover {
+color: #ff6600;
+/* example hover color */
+cursor: pointer;
+}
+
+.tooltiptext {
+visibility: hidden;
+position: absolute;
+background-color: #555;
+color: #fff;
+text-align: center;
+padding: 5px 0;
+border-radius: 6px;
+z-index: 1;
+opacity: 0;
+transition: ease-in-out 0.4s;
+width: 120px;
+left: 50%;
+margin-left: -60px;
+}
+
+.social-icon:hover .tooltiptext {
+visibility: visible;
+opacity: 1;
+}
+
+.fa-facebook-f:hover {
+color: #0081cf;
+/* example hover color */
+cursor: pointer;
+}
+
+.fa-whatsapp:hover {
+/* background: green; */
+color: #00cb0e;
+/* example hover color */
+cursor: pointer;
+}
+
+.fa-linkedin-in:hover {
+/* background: green; */
+color: #0071e9;
+/* example hover color */
+cursor: pointer;
+}
+
+.fa-github:hover {
+/* background: green; */
+color: #000000;
+/* example hover color */
+cursor: pointer;
+}
+
+.btn-primary {
+width: 250px;
+border-radius: 25px;
+margin-top: 25px;
+}
+
+.social-icon {
+width: 30px;
+height: 30px;
+background: #ffffff;
+border-radius: 50%;
+color: #ff3415;
+/* border: black 1px solid; */
+}
