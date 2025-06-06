@@ -14,8 +14,13 @@ import { MemberComponent } from './components/member/member.component';
 import { HomeComponent } from './components/home/home.component';
 import { EmailVerificationComponent } from './components/email-verification/email-verification.component';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
+import { FlameComponent } from './components/flame/flame.component';
+import { CurrencyConvertComponent } from './components/currency-convert/currency-convert.component';
+import { LearningComponent } from './components/learning/learning.component';
 
 export const routes: Routes = [
+
+    { path: '', redirectTo: '/home', pathMatch: 'full' }, // ✅ Default route
 
     {
         path: 'home',
@@ -77,5 +82,18 @@ export const routes: Routes = [
     {
         path: 'email-verification/:studentId',
         component: EmailVerificationComponent
+    },
+    {
+        path: 'flame',
+        component: FlameComponent
+    }
+    ,
+    {
+        path: 'currency',
+        component: CurrencyConvertComponent
+    },
+    {
+        path: 'learning',
+        component: LearningComponent
     }
 ];

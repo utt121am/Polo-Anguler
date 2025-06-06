@@ -1,0 +1,32 @@
+.result-placeholder {
+    margin-top: 20px;
+    padding: 15px 20px;
+    background-color: #f0f9ff;
+    border: 2px solid #90e0ef;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    animation: fadeInScale 0.6s ease-out;
+    transform-origin: center;
+}
+
+.result-placeholder p {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #023e8a;
+    font-weight: bold;
+}
+
+/* Animation keyframes */
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { videoModel } from '../model/video';
 import { profile_verification } from '../model/profile_verification';
+import { flame } from '../model/flame';
+import { CurrencyConvert } from '../model/CurrencyConvert';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +13,8 @@ export class VideoService {
 
 
   urlVideo: String = "http://localhost:8080/poloAnguler/";
+  urlFlame: String = "http://localhost:8080/api/flame";
+  urlCurrency: String = "http://localhost:8080/api/currency-exchange/";
   fullUrl: String = '';
 
   constructor(private http: HttpClient) { }
@@ -46,6 +50,22 @@ export class VideoService {
     });
   }
 
+  flameCalculate(flameObj: flame) {
+    console.log('call api')
+    return this.http.post<HttpResponse<any>>(this.urlFlame + '/calculate', flameObj,
+      {
+        observe: 'response'
+      }
+    );
+  }
 
+  currencyApiCall(currenciesObj: CurrencyConvert) {
+    console.log('call currency api')
+    return this.http.post<HttpResponse<any>>(this.urlCurrency + 'exchange', currenciesObj,
+      {
+        observe: 'response'
+      }
+    );
+  }
 
 }
