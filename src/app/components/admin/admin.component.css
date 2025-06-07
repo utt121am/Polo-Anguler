@@ -211,3 +211,17 @@
     .hero-section .btn:hover {
         background: #0056b3;
     }
+
+    /* ...............floating */
+
+    .fixed-image {
+        position: fixed;
+        bottom: 0px;
+        /* Distance from top of the page */
+        left: 0px;
+        /* Distance from right edge */
+        width: 350px;
+        height: auto;
+        z-index: 9999;
+        /* Ensures it's on top */
+    }

@@ -511,3 +511,17 @@ body {
     color: #ff3415;
     /* border: black 1px solid; */
 }
+
+/* ...............floating */
+
+.fixed-image {
+    position: fixed;
+    bottom: 0px;
+    /* Distance from top of the page */
+    right: 0px;
+    /* Distance from right edge */
+    width: 350px;
+    height: auto;
+    z-index: 9999;
+    /* Ensures it's on top */
+}

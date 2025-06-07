@@ -2,21 +2,21 @@ html,
 body {
     height: 100%;
     margin: 0;
-}
-
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
     font-family: Arial, sans-serif;
 }
 
-main {
-    flex: 1;
-    padding: 2rem;
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-footer.footer-section {
+.content-wrapper {
+    flex: 1;
+    padding: 20px;
+}
+
+.footer-section {
     background-color: #012a4a;
     color: white;
     padding: 2rem 1rem;
@@ -32,27 +32,30 @@ footer.footer-section {
     margin-top: 0.5rem;
 }
 
-.footer__link {
-    display: block;
+.footer__link,
+.footer__social {
     color: #ccc;
     text-decoration: none;
-    margin: 6px 0;
-    transition: color 0.3s ease;
+    transition: 0.3s ease;
 }
 
-.footer__link:hover {
-    color: #00b4d8;
+.footer__link {
+    display: block;
+    margin: 6px 0;
+}
+
+.footer__link:hover,
+.footer__social:hover {
+    color: #00d4ff;
 }
 
 .footer__social {
     margin-right: 10px;
     font-size: 1.5rem;
-    color: #fff;
     transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .footer__social:hover {
-    color: #00d4ff;
     transform: scale(1.2);
 }
 
@@ -78,40 +81,4 @@ footer.footer-section {
 .col-md-4 {
     flex: 1;
     min-width: 200px;
-}
-
-html,
-body {
-    height: 100%;
-    margin: 0;
-}
-
-.page-wrapper {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-.content-wrapper {
-    flex: 1;
-    padding: 20px;
-}
-
-/* Optional footer styles */
-.footer-section {
-    background-color: #012a4a;
-    color: white;
-    padding: 30px 15px;
-}
-
-.footer__link,
-.footer__social {
-    color: #ccc;
-    text-decoration: none;
-}
-
-.footer__link:hover,
-.footer__social:hover {
-    color: #00d4ff;
-    transition: 0.3s ease;
 }
