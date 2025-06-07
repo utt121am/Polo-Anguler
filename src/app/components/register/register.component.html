@@ -11,11 +11,13 @@
                         <!-- Full Name -->
                         <div class="mb-3">
                             <label for="registerName" class="form-label">Full Name</label>
-                            <input type="text" class="form-control" id="registerName" name="name"
-                                [(ngModel)]="registerObj.name" required #nameRef="ngModel"
+                            <input type="text" class="form-control" id="registerName" name="name" maxlength="25"
+                                [(ngModel)]="registerObj.name" required pattern="^[A-Za-z ]{1,25}$" #nameRef="ngModel"
                                 [ngClass]="{'is-invalid': nameRef.invalid && nameRef.touched}" />
-                            <div class="invalid-feedback" *ngIf="nameRef.errors && nameRef.touched">
-                                Full name is required
+                            <div class="invalid-feedback" *ngIf="nameRef.invalid && nameRef.touched">
+                                <div *ngIf="nameRef.errors?.['required']">Full name is required</div>
+                                <div *ngIf="nameRef.errors?.['pattern']">Only letters and spaces, max 25 characters
+                                </div>
                             </div>
                         </div>
 
@@ -23,11 +25,22 @@
                         <div class="mb-3">
                             <label for="registerUsername" class="form-label">Username</label>
                             <input type="text" class="form-control" id="registerUsername" name="username"
-                                [(ngModel)]="registerObj.username" required minlength="3" #usernameRef="ngModel"
+                                [(ngModel)]="registerObj.username" required minlength="6"
+                                pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{6,}$" #usernameRef="ngModel"
                                 [ngClass]="{'is-invalid': usernameRef.invalid && usernameRef.touched}" />
-                            <div class="invalid-feedback" *ngIf="usernameRef.errors && usernameRef.touched">
-                                <div *ngIf="usernameRef.errors['required']">Username is required</div>
-                                <div *ngIf="usernameRef.errors['minlength']">Minimum 3 characters</div>
+                            <div class="invalid-feedback" *ngIf="usernameRef.invalid && usernameRef.touched">
+                                <div *ngIf="usernameRef.errors?.['required']">
+                                    Username is required</div>
+                                <div *ngIf="usernameRef.errors?.['minlength']">
+                                    At least 6 characters</div>
+                                <div *ngIf="usernameRef.errors?.['pattern']">
+                                    Must include:
+                                    <ul class="mb-0">
+                                        <li>1 uppercase letter</li>
+                                        <li>1 number</li>
+                                        <li>1 special character</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
 
@@ -35,11 +48,11 @@
                         <div class="mb-3">
                             <label for="registerEmail" class="form-label">Email</label>
                             <input type="email" class="form-control" id="registerEmail" name="email"
-                                [(ngModel)]="registerObj.email" required email #emailRef="ngModel"
+                                [(ngModel)]="registerObj.email" required #emailRef="ngModel"
                                 [ngClass]="{'is-invalid': emailRef.invalid && emailRef.touched}" />
-                            <div class="invalid-feedback" *ngIf="emailRef.errors && emailRef.touched">
-                                <div *ngIf="emailRef.errors['required']">Email is required</div>
-                                <div *ngIf="emailRef.errors['email']">Invalid email format</div>
+                            <div class="invalid-feedback" *ngIf="emailRef.invalid && emailRef.touched">
+                                <div *ngIf="emailRef.errors?.['required']">Email is required</div>
+                                <div *ngIf="emailRef.errors?.['email']">Invalid email format</div>
                             </div>
                         </div>
 
@@ -50,12 +63,12 @@
                                 id="registerPassword" name="password" [(ngModel)]="registerObj.password" required
                                 minlength="6" #passwordRef="ngModel"
                                 [ngClass]="{'is-invalid': passwordRef.invalid && passwordRef.touched}" />
-                            <div class="invalid-feedback" *ngIf="passwordRef.errors && passwordRef.touched">
-                                <div *ngIf="passwordRef.errors['required']">Password is required</div>
-                                <div *ngIf="passwordRef.errors['minlength']">At least 6 characters</div>
+                            <div class="invalid-feedback" *ngIf="passwordRef.invalid && passwordRef.touched">
+                                <div *ngIf="passwordRef.errors?.['required']">Password is required</div>
+                                <div *ngIf="passwordRef.errors?.['minlength']">At least 6 characters</div>
                             </div>
 
-                            <!-- Show Password Checkbox -->
+                            <!-- Show Password -->
                             <div class="form-check mt-2">
                                 <input class="form-check-input" type="checkbox" id="showPassword"
                                     [(ngModel)]="showPassword" name="showPassword" />
@@ -63,10 +76,61 @@
                             </div>
                         </div>
 
+                        <!-- Phone Number -->
+                        <div class="mb-3">
+                            <label for="phoneNumber" class="form-label">Phone Number</label>
+                            <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber"
+                                [(ngModel)]="registerObj.phoneNumber" #phoneRef="ngModel"
+                                [ngClass]="{'is-invalid': phoneRef.invalid && phoneRef.touched}" />
+                        </div>
+
+                        <!-- Gender -->
+                        <div class="mb-3">
+                            <label for="gender" class="form-label">Gender</label>
+                            <select class="form-select" id="gender" name="gender" [(ngModel)]="registerObj.gender"
+                                required #genderRef="ngModel"
+                                [ngClass]="{'is-invalid': genderRef.invalid && genderRef.touched}">
+                                <option value="">-- Select Gender --</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <div class="invalid-feedback" *ngIf="genderRef.errors && genderRef.touched">
+                                Gender is required
+                            </div>
+                        </div>
+
+                        <!-- Roles -->
+                        <div class="mb-3">
+                            <label for="roles" class="form-label">Role</label>
+                            <select class="form-select" id="roles" name="roles" [(ngModel)]="registerObj.roles" required
+                                #rolesRef="ngModel" [ngClass]="{'is-invalid': rolesRef.invalid && rolesRef.touched}">
+                                <option value="">-- Select Role --</option>
+                                <option value="employee">Employee</option>
+                                <option value="HR">HR</option>
+                                <option value="CEO">CEO</option>
+                                <option value="Data Analyst / Data Scientist">Data Analyst / Data Scientist</option>
+                                <option value="DevOps Engineer">DevOps Engineer</option>
+                                <option value="Software Engineer / Developer">Software Engineer / Developer</option>
+                                <option value="Marketing Manager">Marketing Manager</option>
+                                <option value="Sales Executive / Representative">Sales Executive / Representative
+                                </option>
+                                <option value="Supply Chain Manager">Supply Chain Manager</option>
+                                <option value="UX/UI Designer">UX/UI Designer</option>
+                                <option value="Graphic Designer">Graphic Designer</option>
+                                <option value="Product Designer">Product Designer</option>
+                            </select>
+                            <div class="invalid-feedback" *ngIf="rolesRef.errors && rolesRef.touched">
+                                Role is required
+                            </div>
+                        </div>
+
+                        <!-- Submit -->
                         <button type="submit" class="btn btn-success w-100" [disabled]="registerForm.invalid">
                             Register
                         </button>
                     </form>
+
                 </div>
             </div>
         </div>
