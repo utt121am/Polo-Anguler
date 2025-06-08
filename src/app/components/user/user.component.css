@@ -1,82 +1,69 @@
-html,
-body {
-    height: 100%;
-    margin: 0;
+.login-icon {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin: 50px auto;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
 }
 
-.page-wrapper {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+.login-icon:hover {
+    transform: scale(1.1) rotate(5deg);
 }
 
-.content-wrapper {
-    flex: 1;
-    padding: 20px;
+/* Avatar */
+.avatar .head {
+    width: 30px;
+    height: 30px;
+    background-color: #4CAF50;
+    border-radius: 50%;
+    position: absolute;
+    top: 5px;
+    left: 25px;
 }
 
-/* Footer Styling */
-.footer-section {
-    background-color: #012a4a;
-    color: white;
-    padding: 2rem 1rem;
+.avatar .body {
+    width: 40px;
+    height: 30px;
+    background-color: #4CAF50;
+    border-radius: 50% / 30%;
+    position: absolute;
+    top: 35px;
+    left: 20px;
 }
 
-.footer__title {
-    font-size: 1.2rem;
-    color: #90e0ef;
+/* Lock */
+.lock .shackle {
+    width: 24px;
+    height: 20px;
+    border: 3px solid #555;
+    border-bottom: none;
+    border-radius: 12px 12px 0 0;
+    position: absolute;
+    top: 15px;
+    left: 48px;
+    animation: shackle-bounce 2s infinite;
 }
 
-.footer__text {
-    color: #ccc;
-    margin-top: 0.5rem;
+.lock .lock-body {
+    width: 24px;
+    height: 28px;
+    background-color: #555;
+    border-radius: 4px;
+    position: absolute;
+    top: 30px;
+    left: 48px;
 }
 
-.footer__link {
-    display: block;
-    color: #ccc;
-    text-decoration: none;
-    margin: 6px 0;
-    transition: color 0.3s ease;
-}
+/* Animation */
+@keyframes shackle-bounce {
 
-.footer__link:hover {
-    color: #00b4d8;
-}
+    0%,
+    100% {
+        transform: translateY(0);
+    }
 
-.footer__social {
-    margin-right: 10px;
-    font-size: 1.5rem;
-    color: #fff;
-    transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.footer__social:hover {
-    color: #00d4ff;
-    transform: scale(1.2);
-}
-
-.copyright {
-    text-align: center;
-    padding-top: 1rem;
-    font-size: 0.9rem;
-    color: #ccc;
-}
-
-/* Responsive Layout */
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-.row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 1.5rem;
-}
-
-.col-md-4 {
-    flex: 1;
-    min-width: 200px;
+    50% {
+        transform: translateY(-3px);
+    }
 }

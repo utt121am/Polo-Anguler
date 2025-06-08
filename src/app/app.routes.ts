@@ -17,6 +17,7 @@ import { EditProfileComponent } from './components/edit-profile/edit-profile.com
 import { FlameComponent } from './components/flame/flame.component';
 import { CurrencyConvertComponent } from './components/currency-convert/currency-convert.component';
 import { LearningComponent } from './components/learning/learning.component';
+import { LoginComponent } from './components/login/login.component';
 
 export const routes: Routes = [
 
@@ -95,5 +96,10 @@ export const routes: Routes = [
     {
         path: 'learning',
         component: LearningComponent
+    }
+    ,
+    {
+        path: 'login',
+        component: LoginComponent
     }
 ];

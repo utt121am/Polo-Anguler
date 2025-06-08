@@ -1,19 +1,19 @@
 import { CommonModule, NgClass } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { Router, RouterLink, Routes } from '@angular/router';
 import { loginModel } from '../../model/login';
-import { SelfProfileComponent } from '../self-profile/self-profile.component';
 
 declare var bootstrap: any;
 
+import { Component, OnInit } from '@angular/core';
+
 @Component({
-  selector: 'app-profile',
-  imports: [FormsModule, CommonModule],
-  templateUrl: './profile.component.html',
-  styleUrl: './profile.component.css'
+  selector: 'app-login',
+  imports: [RouterLink, FormsModule, CommonModule],
+  templateUrl: './login.component.html',
+  styleUrl: './login.component.css'
 })
-export class ProfileComponent implements OnInit {
+export class LoginComponent implements OnInit {
 
   constructor(private router: Router) { }
 

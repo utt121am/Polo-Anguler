@@ -1,30 +1,45 @@
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" routerLink="/home">
-      <img src="bgremove1.png" alt="Logo" style="height:40px; width:auto;">
-    </a>
+<nav class="custom-navbar">
+  <div class="navbar-container">
+    <div class="navbar-brand">
+      <a routerLink="/home">
+        <img src="bgremove1.png" alt="Logo" />
+      </a>
+      <button class="menu-toggle" (click)="menuOpen = !menuOpen">&#9776;</button>
+    </div>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="mynavbar">
-      <ul class="navbar-nav me-auto">
-        <li class="nav-item"><a class="nav-link active" routerLink="/admin">admin</a></li>
-        <li class="nav-item"><a class="nav-link active" routerLink="/member">member</a></li>
-        <li class="nav-item"><a class="nav-link" href="/user">user(href)</a></li>
-        <li class="nav-item"><a class="nav-link" routerLink="/data">data-binding</a></li>
-        <li class="nav-item"><a class="nav-link" routerLink="/control">Control-Flow</a></li>
-        <li class="nav-item"><a class="nav-link" routerLink="/getapi">Get-Api</a></li>
-        <li class="nav-item"><a class="nav-link" routerLink="/videos">videos</a></li>
-        <li class="nav-item"><a class="nav-link" routerLink="/profile">profile</a></li>
+    <div class="navbar-links" [ngClass]="{ 'open': menuOpen }">
+      <ul>
+        <li><a routerLink="/admin" class="nav-link">admin</a></li>
+        <li><a routerLink="/member" class="nav-link">member</a></li>
+        <li><a href="/user" class="nav-link">user(href)</a></li>
+        <li><a routerLink="/data" class="nav-link">data-binding</a></li>
+        <li><a routerLink="/control" class="nav-link">Control-Flow</a></li>
+        <li><a routerLink="/getapi" class="nav-link">Get-Api</a></li>
+        <li><a routerLink="/videos" class="nav-link">videos</a></li>
+        <li>
+          <a routerLink="/login" class="nav-link login-button">
+            <span class="login-icon-text">Login</span>
+            <span class="login-icon-avatar">
+              <div class="circle-head"></div>
+              <div class="rectangle-body"></div>
+            </span>
+            <span class="login-icon-lock">
+              <div class="lock-top"></div>
+              <div class="lock-box"></div>
+            </span>
+          </a>
+        </li>
+
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="text" placeholder="Search">
-        <button class="btn btn-primary" type="button">Search</button>
+      <form class="search-form">
+        <input type="text" placeholder="Search" />
+        <button type="button">Search</button>
       </form>
     </div>
   </div>
 </nav>
+
+
 
 <router-outlet />
 
