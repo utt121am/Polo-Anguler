@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CurrencyConvert } from '../../model/CurrencyConvert';
-import { VideoService } from '../../services/video.service';
+import { ApicallingService } from '../../services/apicalling.service';
 
 @Component({
   selector: 'app-currency-convert',
@@ -28,7 +28,7 @@ export class CurrencyConvertComponent {
 
 
   currencyObj: CurrencyConvert = new CurrencyConvert();
-  videoSer = inject(VideoService);
+  videoSer = inject(ApicallingService);
 
   convert() {
     this.currencyObj.amount = this.amount;

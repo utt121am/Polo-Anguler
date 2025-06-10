@@ -28,7 +28,8 @@
             ],
             "styles": [
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "src/styles.css"
+              "src/styles.css",
+              "https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap.css"
             ],
             "scripts": []
           },

@@ -2,11 +2,12 @@ import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { FormsModule, NgModel } from '@angular/forms';
 import { interval } from 'rxjs/internal/observable/interval';
 import { Subscription } from 'rxjs/internal/Subscription';
-import { VideoService } from '../../services/video.service';
+// import { VideoService } from '../../services/video.service';
 import { profile_verification } from '../../model/profile_verification';
 import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { NgClass } from '@angular/common';
+import { ApicallingService } from '../../services/apicalling.service';
 declare var bootstrap: any;
 @Component({
   selector: 'app-email-verification',
@@ -21,7 +22,7 @@ export class EmailVerificationComponent implements OnInit, OnDestroy {
   timer: number = 60;
   private subscription: Subscription | null = null;
 
-  videoSer: VideoService = inject(VideoService);
+  videoSer: ApicallingService = inject(ApicallingService);
   verification: profile_verification = new profile_verification();
   router: Router = inject(Router);
   floatingTitle: string = '';

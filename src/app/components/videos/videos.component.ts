@@ -1,9 +1,10 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { VideoService } from '../../services/video.service';
+// import { VideoService } from '../../services/video.service';
 import { videoModel } from '../../model/video';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule, NgForm } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { apiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-videos',
@@ -18,7 +19,7 @@ export class VideosComponent implements OnInit {
   videosList: any[] = [];
 
   videoObj: videoModel = new videoModel();
-  videoSer = inject(VideoService);
+  videoSer = inject(apiService);
 
   ngOnInit(): void {
     debugger;

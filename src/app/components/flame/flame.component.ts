@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { VideoService } from '../../services/video.service';
 import { flame } from '../../model/flame';
+import { apiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-flame',
@@ -17,7 +17,7 @@ export class FlameComponent {
   relationshipStatus: string = 'single';
 
   flameObj: flame = new flame();
-  videoSer = inject(VideoService);
+  videoSer = inject(apiService);
 
 
   checkRelationship() {

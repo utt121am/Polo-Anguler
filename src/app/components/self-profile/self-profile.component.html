@@ -12,4 +12,122 @@
 </div>
 
 <!-- ................ -->
-<p>self-profile works!</p>
+<div class="register-container">
+    <div class="register-card">
+        <h2 class="form-title">Sign Up</h2>
+
+        <form #registerForm="ngForm" (ngSubmit)="onRegister(registerForm)">
+            <!-- Full Name -->
+            <div class="form-group">
+                <input type="text" id="name" name="name" maxlength="25" placeholder=" " [(ngModel)]="registerObj.name"
+                    required pattern="^[A-Za-z ]{1,25}$" #nameRef="ngModel"
+                    [ngClass]="{'is-invalid': nameRef.invalid && nameRef.touched}" />
+                <label for="name">Full Name</label>
+                <div class="error" *ngIf="nameRef.invalid && nameRef.touched">
+                    <div *ngIf="nameRef.errors?.['required']">Name is required</div>
+                    <div *ngIf="nameRef.errors?.['pattern']">Only letters and spaces</div>
+                </div>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+                <input type="email" id="email" name="email" placeholder=" " [(ngModel)]="registerObj.email" required
+                    email #emailRef="ngModel" [ngClass]="{'is-invalid': emailRef.invalid && emailRef.touched}" />
+                <label for="email">Email</label>
+                <div class="error" *ngIf="emailRef.invalid && emailRef.touched">
+                    <div *ngIf="emailRef.errors?.['required']">Email is required</div>
+                    <div *ngIf="emailRef.errors?.['email']">Invalid email format</div>
+                </div>
+            </div>
+
+            <!-- Phone Number -->
+            <div class="form-group">
+                <input type="tel" id="phoneNumber" name="phoneNumber" placeholder=" "
+                    [(ngModel)]="registerObj.phoneNumber" required pattern="^\d{10}$" #phoneRef="ngModel"
+                    [ngClass]="{'is-invalid': phoneRef.invalid && phoneRef.touched}" />
+                <label for="phoneNumber">Phone Number</label>
+                <div class="error" *ngIf="phoneRef.invalid && phoneRef.touched">
+                    <div *ngIf="phoneRef.errors?.['required']">Phone number is required</div>
+                    <div *ngIf="phoneRef.errors?.['pattern']">Enter a valid 10-digit phone number</div>
+                </div>
+            </div>
+
+            <!-- Username -->
+            <div class="form-group">
+                <input type="text" id="username" name="username" placeholder=" " [(ngModel)]="registerObj.username"
+                    required minlength="6" #usernameRef="ngModel"
+                    [ngClass]="{'is-invalid': usernameRef.invalid && usernameRef.touched}" />
+                <label for="username">Username</label>
+                <div class="error" *ngIf="usernameRef.invalid && usernameRef.touched">
+                    <div *ngIf="usernameRef.errors?.['required']">Username is required</div>
+                    <div *ngIf="usernameRef.errors?.['minlength']">At least 6 characters</div>
+                </div>
+            </div>
+
+            <!-- Password -->
+            <div class="form-group">
+                <input [type]="showPassword ? 'text' : 'password'" id="password" name="password" placeholder=" "
+                    [(ngModel)]="registerObj.password" required minlength="6" #passwordRef="ngModel"
+                    [ngClass]="{'is-invalid': passwordRef.invalid && passwordRef.touched}" />
+                <label for="password">Password</label>
+                <span class="toggle-password" (click)="showPassword = !showPassword">
+                    {{ showPassword ? '🙈' : '👁️' }}
+                </span>
+                <div class="error" *ngIf="passwordRef.invalid && passwordRef.touched">
+                    <div *ngIf="passwordRef.errors?.['required']">Password is required</div>
+                    <div *ngIf="passwordRef.errors?.['minlength']">Minimum 6 characters</div>
+                </div>
+            </div>
+
+            <!-- Gender -->
+            <div class="form-group">
+                <select id="gender" name="gender" required [(ngModel)]="registerObj.gender" #genderRef="ngModel"
+                    [ngClass]="{'is-invalid': genderRef.invalid && genderRef.touched}">
+                    <option value="" disabled selected hidden>Select Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+                <label for="gender">Gender</label>
+                <div class="error" *ngIf="genderRef.errors && genderRef.touched">Gender is required</div>
+            </div>
+
+            <!-- Role -->
+            <div class="form-group">
+                <select id="role" name="role" required [(ngModel)]="registerObj.role" #roleRef="ngModel"
+                    [ngClass]="{ 'is-invalid': roleRef.invalid && roleRef.touched }">
+                    <option value="" disabled selected hidden>Select Role</option>
+                    <option *ngFor="let role of rolesList" [value]="role">{{ role }}</option>
+                </select>
+                <label for="role">Role</label>
+                <div class="error" *ngIf="roleRef.errors && roleRef.touched">Role is required</div>
+            </div>
+
+            <!-- Submit -->
+            <button type="submit" [disabled]="registerForm.invalid">Sign Up</button>
+        </form>
+
+        <!-- Social Auth Buttons -->
+        <div class="social-login">
+            <p class="or-separator">or sign up with</p>
+            <div class="social-icons">
+                <button type="button" class="social-btn google" (click)="signUpWithGoogle()">
+                    <img src="https://img.icons8.com/color/48/000000/google-logo.png" alt="Google" class="icon" />
+                    <span>Google</span>
+                </button>
+                <button type="button" class="social-btn github" (click)="signUpWithGitHub()">
+                    <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" class="icon" />
+                    <span>GitHub</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Go to login -->
+        <div class="go-login">
+            Already have an account? <a routerLink="/login">Login</a>
+        </div>
+
+
+
+    </div>
+</div>

@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-login',
-  imports: [RouterLink, FormsModule, CommonModule],
+  imports: [RouterLink, FormsModule, CommonModule, NgClass, FormsModule, CommonModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })

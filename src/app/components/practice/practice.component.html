@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Login Form | pbc-webdev</title>
+
+</head>
+
+<body>
+    <div class="container" [ngClass]="{ 'active': isRegisterMode }" id="container">
+        <!-- Sign Up Form -->
+        <div class="form-container sign-up">
+            <form #registerForm="ngForm" (ngSubmit)="onRegister(registerForm)">
+                <h1>Sign Up</h1>
+                <!-- Full Name -->
+                <div class="mb-3">
+                    <input type="text" placeholder="Full Name" class="form-control" id="registerName" name="name"
+                        maxlength="25" [(ngModel)]="registerObj.name" required pattern="^[A-Za-z ]{1,25}$"
+                        #nameRef="ngModel" [ngClass]="{'is-invalid': nameRef.invalid && nameRef.touched}" />
+                    <div class="invalid-feedback" *ngIf="nameRef.invalid && nameRef.touched">
+                        <div *ngIf="nameRef.errors?.['required']">Full name is required</div>
+                        <div *ngIf="nameRef.errors?.['pattern']">Only letters and spaces, max 25 characters</div>
+                    </div>
+                </div>
+
+                <!-- Username -->
+                <div class="mb-3">
+                    <input type="text" placeholder="Username" class="form-control" id="registerUsername" name="username"
+                        [(ngModel)]="registerObj.username" required minlength="6"
+                        pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$" #usernameRef="ngModel"
+                        [ngClass]="{'is-invalid': usernameRef.invalid && usernameRef.touched}" />
+                    <div class="invalid-feedback" *ngIf="usernameRef.invalid && usernameRef.touched">
+                        <div *ngIf="usernameRef.errors?.['required']">Username is required</div>
+                        <div *ngIf="usernameRef.errors?.['minlength']">At least 6 characters</div>
+                        <div *ngIf="usernameRef.errors?.['pattern']">
+                            Must include:
+                            <ul class="mb-0">
+                                <li>1 uppercase letter</li>
+                                <li>1 number</li>
+                                <li>1 special character</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Email -->
+                <div class="mb-3">
+                    <input type="email" placeholder="Email" class="form-control" id="registerEmail" name="email"
+                        [(ngModel)]="registerObj.email" required #emailRef="ngModel"
+                        [ngClass]="{'is-invalid': emailRef.invalid && emailRef.touched}" />
+                    <div class="invalid-feedback" *ngIf="emailRef.invalid && emailRef.touched">
+                        <div *ngIf="emailRef.errors?.['required']">Email is required</div>
+                        <div *ngIf="emailRef.errors?.['email']">Invalid email format</div>
+                    </div>
+                </div>
+
+                <!-- Password -->
+                <div class="mb-3 password-wrapper">
+                    <input [type]="showPassword ? 'text' : 'password'" placeholder="Password" class="form-control"
+                        id="registerPassword" name="password" [(ngModel)]="registerObj.password" required minlength="6"
+                        #passwordRef="ngModel" [ngClass]="{'is-invalid': passwordRef.invalid && passwordRef.touched}" />
+                    <i class="fas fa-eye show-password" [ngClass]="{'fa-eye-slash': showPassword}"
+                        (click)="showPassword = !showPassword"></i>
+                    <div class="invalid-feedback" *ngIf="passwordRef.invalid && passwordRef.touched">
+                        <div *ngIf="passwordRef.errors?.['required']">Password is required</div>
+                        <div *ngIf="passwordRef.errors?.['minlength']">At least 6 characters</div>
+                    </div>
+                </div>
+
+                <!-- Phone Number -->
+                <div class="mb-3">
+                    <input type="tel" placeholder="Phone Number" class="form-control" id="phoneNumber"
+                        name="phoneNumber" [(ngModel)]="registerObj.phoneNumber" #phoneRef="ngModel" required
+                        pattern="^\d{10}$" [ngClass]="{'is-invalid': phoneRef.invalid && phoneRef.touched}" />
+                    <div class="invalid-feedback" *ngIf="phoneRef.invalid && phoneRef.touched">
+                        <div *ngIf="phoneRef.errors?.['required']">Phone number is required</div>
+                        <div *ngIf="phoneRef.errors?.['pattern']">Enter a valid 10-digit phone number</div>
+                    </div>
+                </div>
+
+                <!-- Gender -->
+                <div class="mb-3">
+                    <select class="form-select" id="gender" name="gender" [(ngModel)]="registerObj.gender" required
+                        #genderRef="ngModel" [ngClass]="{'is-invalid': genderRef.invalid && genderRef.touched}">
+                        <option value="" disabled>-- Select Gender --</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <div class="invalid-feedback" *ngIf="genderRef.errors && genderRef.touched">
+                        Gender is required
+                    </div>
+                </div>
+
+                <!-- Roles -->
+                <div class="mb-3">
+                    <select class="form-select" id="roles" name="roles" [(ngModel)]="registerObj.roles" required
+                        #rolesRef="ngModel" [ngClass]="{'is-invalid': rolesRef.invalid && rolesRef.touched}">
+                        <option value="" disabled>-- Select Role --</option>
+                        <option value="employee">Employee</option>
+                        <option value="HR">HR</option>
+                        <option value="CEO">CEO</option>
+                        <option value="Data Analyst / Data Scientist">Data Analyst / Data Scientist</option>
+                        <option value="DevOps Engineer">DevOps Engineer</option>
+                        <option value="Software Engineer / Developer">Software Engineer / Developer</option>
+                        <option value="Marketing Manager">Marketing Manager</option>
+                        <option value="Sales Executive / Representative">Sales Executive / Representative</option>
+                        <option value="Supply Chain Manager">Supply Chain Manager</option>
+                        <option value="UX/UI Designer">UX/UI Designer</option>
+                        <option value="Graphic Designer">Graphic Designer</option>
+                        <option value="Product Designer">Product Designer</option>
+                    </select>
+                    <div class="invalid-feedback" *ngIf="rolesRef.errors && genderRef.touched">
+                        Role is required
+                    </div>
+                </div>
+
+                <!-- Submit -->
+                <button type="submit" class="btn btn-success w-100" [disabled]="registerForm.invalid || isLoading">
+                    {{ isLoading ? 'Registering...' : 'Register' }}
+                </button>
+            </form>
+        </div>
+
+        <!-- Sign In Form -->
+        <div class="form-container sign-in">
+            <form #loginForm="ngForm" (ngSubmit)="onLogin(loginForm)">
+                <h1>Login With</h1>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+                <hr />
+                <h1>OR</h1>
+                <hr />
+                <span>Login With Your Email & Password</span>
+
+                <!-- Email -->
+                <div class="mb-3 w-100">
+                    <input type="email" placeholder="Email" class="form-control" id="loginEmail" name="email"
+                        [(ngModel)]="loginObj.email" required email #emailRef="ngModel"
+                        [ngClass]="{ 'is-invalid': emailRef.invalid && emailRef.touched }" />
+                    <div class="invalid-feedback" *ngIf="emailRef.errors && emailRef.touched">
+                        <div *ngIf="emailRef.errors['required']">Email is required</div>
+                        <div *ngIf="emailRef.errors['email']">Invalid email format</div>
+                    </div>
+                </div>
+
+                <!-- Password -->
+                <div class="mb-3 w-100 password-wrapper">
+                    <input [type]="showPassword ? 'text' : 'password'" placeholder="Password" class="form-control"
+                        id="loginPassword" name="password" [(ngModel)]="loginObj.password" required minlength="6"
+                        #passwordRef="ngModel"
+                        [ngClass]="{ 'is-invalid': passwordRef.invalid && passwordRef.touched }" />
+                    <i class="fas fa-eye show-password" [ngClass]="{'fa-eye-slash': showPassword}"
+                        (click)="showPassword = !showPassword"></i>
+                    <div class="invalid-feedback" *ngIf="passwordRef.errors && passwordRef.touched">
+                        <div *ngIf="passwordRef.errors['required']">Password is required</div>
+                        <div *ngIf="passwordRef.errors['minlength']">Password must be at least 6 characters</div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-success w-100" [disabled]="loginForm.invalid || isLoading">
+                    {{ isLoading ? 'Logging in...' : 'Login' }}
+                </button>
+            </form>
+        </div>
+
+        <!-- Toggle Panel -->
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Welcome Back!</h1>
+                    <p>Provide your personal details to use all features</p>
+                    <button class="hidden" (click)="toggleMode(false)">Login</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Hello</h1>
+                    <p>Register to use all features in our site</p>
+                    <button class="hidden" (click)="toggleMode(true)">Sign Up</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Toast Notification -->
+        <div id="loginToast" class="toast position-fixed top-0 end-0 m-3" role="alert" aria-live="assertive"
+            aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto">Notification</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">{{ popUp }}</div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-import { UserComponent } from './components/user/user.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { DataBindingComponent } from './components/data-binding/data-binding.component';
 import { ControlFlowComponent } from './components/control-flow/control-flow.component';
@@ -18,6 +17,7 @@ import { FlameComponent } from './components/flame/flame.component';
 import { CurrencyConvertComponent } from './components/currency-convert/currency-convert.component';
 import { LearningComponent } from './components/learning/learning.component';
 import { LoginComponent } from './components/login/login.component';
+import { PracticeComponent } from './components/practice/practice.component';
 
 export const routes: Routes = [
 
@@ -30,10 +30,6 @@ export const routes: Routes = [
     {
         path: 'member',
         component: MemberComponent
-    },
-    {
-        path: 'user',
-        component: UserComponent
     },
     {
         path: 'admin',
@@ -64,15 +60,17 @@ export const routes: Routes = [
         component: RegisterComponent
     },
     {
-        path: 'selfprofile/:studentId',
+        // path: 'selfprofile/:studentId',
+        path: 'selfprofile',
         component: SelfProfileComponent,
-        canActivate: [AuthGuard]
+        // canActivate: [AuthGuard]
     }
     ,
     {
-        path: 'editprofile/:studentId',
+        // path: 'editprofile/:studentId',
+        path: 'editprofile',
         component: EditProfileComponent,
-        canActivate: [AuthGuard]
+        // canActivate: [AuthGuard]
     }
     ,
     {
@@ -101,5 +99,10 @@ export const routes: Routes = [
     {
         path: 'login',
         component: LoginComponent
+    }
+    ,
+    {
+        path: 'practice',
+        component: PracticeComponent
     }
 ];

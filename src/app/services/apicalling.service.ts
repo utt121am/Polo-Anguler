@@ -1,7 +1,6 @@
-import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/internal/Observable';
 import { videoModel } from '../model/video';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { profile_verification } from '../model/profile_verification';
 import { flame } from '../model/flame';
 import { CurrencyConvert } from '../model/CurrencyConvert';
@@ -9,8 +8,7 @@ import { CurrencyConvert } from '../model/CurrencyConvert';
 @Injectable({
   providedIn: 'root'
 })
-export class VideoService {
-
+export class ApicallingService {
 
   urlVideo: String = "http://localhost:8080/poloAnguler/";
   urlFlame: String = "http://localhost:8080/api/flame";
@@ -67,5 +65,4 @@ export class VideoService {
       }
     );
   }
-
 }
