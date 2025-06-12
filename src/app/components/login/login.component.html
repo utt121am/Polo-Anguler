@@ -1,9 +1,8 @@
-<!-- popup -->
 <!-- Toast Container (Top-Right Corner) -->
 <div class="position-fixed top-0 end-0 p-3" style="z-index: 1055">
     <div class="toast align-items-center text-bg-success border-0" id="loginToast" role="alert" aria-live="assertive"
         aria-atomic="true" data-bs-delay="3000" data-bs-autohide="true">
-        <div class="d-flex">
+        <div class="toast">
             <div class="toast-body">{{popUp}}</div>
             <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
                 aria-label="Close"></button>
@@ -11,73 +10,67 @@
     </div>
 </div>
 
-<!-- ................ -->
+<!-- Login Container -->
+<div class="register-container">
+    <div class="register-card">
+        <h2 class="form-title">Login</h2>
 
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-5">
-            <div class="card shadow-lg">
-                <div class="card-header text-center bg-primary text-white">
-                    <h4>Login</h4>
-                </div>
+        <hr>
 
-
-                <div class="card-body">
-                    <form #loginForm="ngForm" (ngSubmit)="onLogin(loginForm)">
-
-                        <!-- email -->
-                        <div class="mb-3">
-                            <label for="loginEmail" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="loginEmail" name="email"
-                                [(ngModel)]="loginObj.email" required email #emailRef="ngModel"
-                                [ngClass]="{'is-invalid': emailRef.invalid && emailRef.touched}" />
-
-                            <div class="invalid-feedback" *ngIf="emailRef.errors && emailRef.touched">
-
-                                <div *ngIf="emailRef.errors['required']">Email is required</div>
-                                <div *ngIf="emailRef.errors['email']">Invalid email format</div>
-                            </div>
-                        </div>
-
-                        <!-- password-->
-                        <div class="mb-3">
-                            <label for="loginPassword" class="form-label">Password</label>
-                            <input [type]="showPassword ? 'text' : 'password'" class="form-control" id="loginPassword"
-                                name="password" [(ngModel)]="loginObj.password" required minlength="6"
-                                #passwordRef="ngModel"
-                                [ngClass]="{'is-invalid': passwordRef.invalid && passwordRef.touched}" />
-                            <div class="invalid-feedback" *ngIf="passwordRef.errors && passwordRef.touched">
-
-                                <div *ngIf="passwordRef.errors['required']">Password is required</div>
-                                <div *ngIf="passwordRef.errors['minlength']">
-                                    Password must be at least 6 characters
-                                </div>
-                            </div>
-
-                            <!-- Show Password Checkbox -->
-                            <div class="form-check mt-2">
-                                <input class="form-check-input" type="checkbox" id="showPassword"
-                                    [(ngModel)]="showPassword" name="showPassword" />
-                                <label class="form-check-label" for="showPassword">Show Password</label>
-                            </div>
-                            
-                        </div>
-
-
-                        <button type="submit" class="btn btn-primary w-100" [disabled]="loginForm.invalid">
-                            Login
-                        </button>
-                    </form>
-
+        <form #loginForm="ngForm" (ngSubmit)="onLogin(loginForm)">
+            <!-- Username -->
+            <div class="form-group">
+                <input type="text" placeholder=" " class="form-control" id="loginUsername" name="username"
+                    [(ngModel)]="loginObj.username" required #usernameRef="ngModel"
+                    [ngClass]="{'is-invalid': usernameRef.invalid && usernameRef.touched}" />
+                <label for="loginUsername">Username</label>
+                <div class="invalid-feedback" *ngIf="usernameRef.invalid && usernameRef.touched">
+                    <div *ngIf="usernameRef.errors?.['required']">Username is required</div>
                 </div>
             </div>
 
-            <div class="text-center mt-3">
-                <p>
-                    Don't have an account?
-                    <a [routerLink]="['/register']">Register here</a>
-                </p>
+            <!-- Password -->
+            <div class="form-group">
+                <input [type]="showPassword ? 'text' : 'password'" id="password" name="password" placeholder=" "
+                    [(ngModel)]="loginObj.password" required #passwordRef="ngModel"
+                    [ngClass]="{'is-invalid': passwordRef.invalid && passwordRef.touched}" />
+                <label for="password">Password</label>
+                <span class="toggle-password" (click)="showPassword = !showPassword">
+                    {{ showPassword ? '🙈' : '👁️' }}
+                </span>
+                <div class="error" *ngIf="passwordRef.invalid && passwordRef.touched">
+                    <div *ngIf="passwordRef.errors?.['required']">Password is required</div>
+                </div>
             </div>
+
+            <!-- Submit -->
+            <button type="submit" [disabled]="loginForm.invalid">Login</button>
+        </form>
+
+        <!-- Try Another Login -->
+        <div class="go-login">
+            <a routerLink="/another-login">Try Another Way</a>
+        </div>
+        <hr>
+
+        <!-- Social Auth Buttons -->
+        <div class="social-login">
+            <p class="or-separator">or Login with</p>
+            <div class="social-icons">
+                <button type="button" class="social-btn google" (click)="loginWithGoogle()">
+                    <img src="https://img.icons8.com/color/48/000000/google-logo.png" alt="Google" class="icon" />
+                    <span>Google</span>
+                </button>
+                <button type="button" class="social-btn github" (click)="loginGitHub()">
+                    <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" class="icon" />
+                    <span>GitHub</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Go to Sign Up -->
+        <div class="go-login">
+            Don't have an account? <a routerLink="/register">Sign Up</a>
         </div>
     </div>
 </div>

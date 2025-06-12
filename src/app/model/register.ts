@@ -10,9 +10,9 @@ export class registerModel {
 
     constructor() {
         this.name = '';
-        this.username = '';
-        this.password = '';
         this.email = '';
+        this.password = '';
+        this.username = '';
         this.phoneNumber = '';
         this.gender = '';
         this.roles = '';

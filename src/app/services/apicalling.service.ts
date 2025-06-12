@@ -11,7 +11,7 @@ import { registerModel } from '../model/register';
 })
 export class ApicallingService {
 
-  urlProfile: String = "http://localhost:8080//profile/";
+  urlProfile: string = "http://localhost:8080/profile/";
   urlVideo: String = "http://localhost:8080/poloAnguler/";
   urlFlame: String = "http://localhost:8080/api/flame";
   urlCurrency: String = "http://localhost:8080/api/currency-exchange/";
@@ -20,6 +20,7 @@ export class ApicallingService {
   constructor(private http: HttpClient) { }
 
   postProfile(obj: registerModel) {
+    console.log('post profile api called..')
     console.log(this.urlProfile + 'post-Profile');
     return this.http.post(this.urlProfile + 'post-Profile', obj)
   }

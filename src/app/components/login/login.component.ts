@@ -15,6 +15,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
+  loginWithGoogle() {
+    alert('Google sign-up coming soon!');
+  }
+
+  loginGitHub() {
+    alert('GitHub sign-up coming soon!');
+  }
+
   constructor(private router: Router) { }
 
   popUp: String = '';
@@ -34,7 +42,6 @@ export class LoginComponent implements OnInit {
       console.log("press login button")
       console.log("email : ", this.loginObj.email)
       console.log("password : ", this.loginObj.password)
-      // ....pop up
       const toastEl = document.getElementById('loginToast');
       this.popUp = " Login Successful";
       if (toastEl) {

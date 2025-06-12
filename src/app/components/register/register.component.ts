@@ -4,6 +4,11 @@ import { CommonModule, NgClass } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { registerModel } from '../../model/register';
 import { ApicallingService } from '../../services/apicalling.service';
+import { Router } from '@angular/router';
+
+// import { ToastService } from '../../services/toast.service'; // Adjust path if needed
+
+declare var bootstrap: any;
 
 @Component({
   selector: 'app-register',
@@ -13,6 +18,9 @@ import { ApicallingService } from '../../services/apicalling.service';
   styleUrl: './register.component.css'
 })
 export class RegisterComponent {
+
+  constructor(private router: Router) { }
+
 
   rolesList: string[] = [
     'Employee',
@@ -31,22 +39,100 @@ export class RegisterComponent {
 
   showPassword = false;
   registerObj: registerModel = new registerModel();
-  videoSer = inject(ApicallingService);
+  apiCalling = inject(ApicallingService);
 
   isLoading = false;
-  popUp: any;
+  popUp: any = '';
+  popUpBg: any = '';
+  disable: any = false;
+
+  checkLowercase(password: any): boolean {
+    return /[a-z]/.test(password);
+  }
+
+  checkUppercase(password: any): boolean {
+    return /[A-Z]/.test(password);
+  }
+
+  checkNumber(password: any): boolean {
+    return /[0-9]/.test(password);
+  }
+
+  checkSpecialChar(password: any): boolean {
+    return /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password);
+  }
+
+  checkNoSpace(password: any): boolean {
+    return !/\s/.test(password);
+  }
+
+
 
   onRegister(form: NgForm) {
+    this.isLoading = true;
     if (form.valid) {
-      this.isLoading = true;
-      console.log(form)
-      console.log(this.registerObj)
-      // setTimeout(() => {
-      //   this.isLoading = false;
-      //   alert('Registered Successfully!');
-      // }, 2000);
+
+      this.apiCalling.postProfile(this.registerObj).subscribe(
+        (res: any) => {
+          this.allEmptyField()
+          this.disable = true;
+          console.log('API Response:', res);
+          this.popUp = 'Account Created Successfully';
+          this.popUpBg = 'text-bg-success';
+          this.RegSucPopUp();
+          this.isLoading = false;
+
+          // ✅ Redirect to /login after 5 seconds (to show toast)
+          setTimeout(() => {
+            this.router.navigate(['/login']);
+          }, 2000);
+
+        },
+        (error: any) => {
+          console.error('API Error:', error);
+
+          // Handle various possible error structures
+          if (error.error && error.error.statusText) {
+            this.popUp = error.error.statusText;
+          } else if (error.statusText) {
+            this.popUp = error.statusText;
+          } else {
+            this.popUp = 'Something went wrong!';
+          }
+
+          this.popUpBg = 'text-bg-danger';
+          this.RegSucPopUp();
+          this.isLoading = false;
+        }
+      );
     }
   }
+
+  allEmptyField() {
+    this.registerObj.name = '';
+    this.registerObj.email = '';
+    this.registerObj.password = '';
+    this.registerObj.username = '';
+    this.registerObj.phoneNumber = '';
+    this.registerObj.gender = '';
+    this.registerObj.roles = '';
+  }
+
+
+  RegSucPopUp() {
+    console.log("onInit is working in the sign up...");
+    const toastEl = document.getElementById('loginToast');
+    if (toastEl) {
+      const toast = new bootstrap.Toast(toastEl, {
+        delay: 2000,     // 👈 Set delay to 5 seconds
+        autohide: true
+      });
+      toast.show();
+    } else {
+      console.warn("Toast element not found!");
+    }
+  }
+
 
   signUpWithGoogle() {
     alert('Google sign-up coming soon!');

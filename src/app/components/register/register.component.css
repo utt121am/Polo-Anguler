@@ -1,3 +1,7 @@
+body{
+    background: #0e122c;
+}
+
 .register-container {
     display: flex;
     justify-content: center;
@@ -166,4 +170,21 @@ button[type="submit"]:disabled {
 
 .go-login a:hover {
     text-decoration: underline;
+}
+
+/* ...................pop up................ */
+.toast {
+    animation: slideIn 0.4s ease-in-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0%);
+        opacity: 1;
+    }
 }
