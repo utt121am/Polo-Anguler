@@ -25,44 +25,39 @@ export class LoginComponent implements OnInit {
 
   constructor(private router: Router) { }
 
-  popUp: String = '';
-
   ngOnInit(): void {
     if (history.state.triggerMethod) {
-      this.popUp = " Register Successful";
-      this.RegSucPopUp();
+      // this.popUp = " Register Successful";
+      // this.loginSucPopUp();
     }
   }
 
   loginObj: loginModel = new loginModel();
   showPassword: boolean = false;
 
+  popUp: any = '';
+  popUpBg: any = ' text-bg-danger';
+
   onLogin(data: NgForm) {
     if (data.valid) {
       console.log("press login button")
-      console.log("email : ", this.loginObj.email)
+      console.log("username : ", this.loginObj.username)
       console.log("password : ", this.loginObj.password)
-      const toastEl = document.getElementById('loginToast');
-      this.popUp = " Login Successful";
-      if (toastEl) {
-        const toast = new bootstrap.Toast(toastEl);
-        toast.show();
-        this.printAfter()
-      } else {
-        console.warn("Toast element not found!");
-      }
-      // ....pop up
+      this, this.loginSucPopUp('Login success', 'text-bg-success');
     } else {
       console.log('Form is invalid');
     }
   }
 
-  RegSucPopUp() {
-    console.log("onInit is working in the login...");
-
+  loginSucPopUp(popUp: String, popUpBg: String) {
+    this.popUp = popUp;
+    this.popUpBg = popUpBg;
     const toastEl = document.getElementById('loginToast');
     if (toastEl) {
-      const toast = new bootstrap.Toast(toastEl);
+      const toast = new bootstrap.Toast(toastEl, {
+        delay: 2000,     // 👈 Set delay to 5 seconds
+        autohide: true
+      });
       toast.show();
     } else {
       console.warn("Toast element not found!");

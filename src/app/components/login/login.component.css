@@ -152,6 +152,7 @@ button[type="submit"]:disabled {
     height: 20px;
 }
 
+/* .................go login............... */
 .go-login {
     text-align: center;
     margin-top: 1rem;
@@ -169,5 +170,26 @@ button[type="submit"]:disabled {
 }
 
 .go-login:not(:last-child) {
+    margin-bottom: 0.5rem;
+}
+
+/* .................go login............... */
+.forget_password {
+    text-align: end;
+    margin-top: 1rem;
+    /* cursor: pointer; */
+}
+
+.forget_password a {
+    color: #1a73e8;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.forget_password a:hover {
+    text-decoration: underline;
+}
+
+.forget_password:not(:last-child) {
     margin-bottom: 0.5rem;
 }

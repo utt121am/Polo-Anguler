@@ -1,12 +1,13 @@
 export class loginModel {
 
 
-    email: String;
     password: String;
-username: any;
+    username: any;
+    email: String;
 
     constructor() {
         this.email = '';
         this.password = '';
+        this.username = '';
     }
 }
