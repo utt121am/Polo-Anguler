@@ -46,25 +46,26 @@ export class RegisterComponent {
   popUpBg: any = '';
   disable: any = false;
 
-  checkLowercase(password: any): boolean {
-    return /[a-z]/.test(password);
+  checkMinLength(password: any): boolean {
+    return password?.length >= 8;
   }
 
-  checkUppercase(password: any): boolean {
-    return /[A-Z]/.test(password);
+  checkLetter(password: any): boolean {
+    return /[A-Za-z]/.test(password);
   }
 
   checkNumber(password: any): boolean {
-    return /[0-9]/.test(password);
+    return /\d/.test(password);
   }
 
   checkSpecialChar(password: any): boolean {
-    return /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password);
+    return /[@$!%*?&]/.test(password);
   }
 
   checkNoSpace(password: any): boolean {
     return !/\s/.test(password);
   }
+
 
 
 

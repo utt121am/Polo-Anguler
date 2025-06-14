@@ -85,11 +85,10 @@
 
 
 
-        <!-- Password -->
+        <!-- Password Field -->
         <div class="form-group position-relative">
           <input [type]="showPassword ? 'text' : 'password'" id="password" name="password" placeholder=" "
-            [(ngModel)]="registerObj.password" #passwordRef="ngModel" required minlength="8" maxlength="20"
-            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$"
+            [(ngModel)]="registerObj.password" #passwordRef="ngModel" required
             [ngClass]="{ 'is-invalid': passwordRef.invalid && passwordRef.touched }" />
           <label for="password">Password</label>
 
@@ -98,25 +97,16 @@
             {{ showPassword ? '🙈' : '👁️' }}
           </span>
 
-          <!-- Validation Errors -->
-          <div class="error" *ngIf="passwordRef.invalid && passwordRef.touched">
-            <div *ngIf="passwordRef.errors?.['required']">Password is required</div>
-            <div *ngIf="passwordRef.errors?.['minlength']">Minimum 8 characters</div>
-            <div *ngIf="passwordRef.errors?.['maxlength']">Maximum 20 characters allowed</div>
-            <div *ngIf="passwordRef.errors?.['pattern']">
-              Must include upper, lower, digit, special char, no spaces.
-            </div>
-          </div>
-
-          <!-- Live Strength Checklist -->
-          <ul class="mb-0 small text-danger" *ngIf="registerObj.password && passwordRef.touched">
-            <li [hidden]="checkLowercase(registerObj.password)"> 1 lowercase letter</li>
-            <li [hidden]="checkUppercase(registerObj.password)"> 1 uppercase letter</li>
-            <li [hidden]="checkNumber(registerObj.password)"> 1 number</li>
-            <li [hidden]="checkSpecialChar(registerObj.password)"> 1 special character</li>
-            <li [hidden]="checkNoSpace(registerObj.password)"> No spaces</li>
+          <!-- Individual Validation Warnings -->
+          <ul class="mb-0 small text-danger ps-3" *ngIf="passwordRef.touched">
+            <li *ngIf="!checkMinLength(registerObj.password)">Minimum 8 characters</li>
+            <li *ngIf="!checkLetter(registerObj.password)">At least 1 letter (a-z or A-Z)</li>
+            <li *ngIf="!checkNumber(registerObj.password)">At least 1 number (0–9)</li>
+            <li *ngIf="!checkSpecialChar(registerObj.password)">At least 1 special character </li>
+            <li *ngIf="!checkNoSpace(registerObj.password)">No spaces allowed</li>
           </ul>
         </div>
+
 
 
 
